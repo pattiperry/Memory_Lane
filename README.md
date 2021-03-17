@@ -1,3 +1,52 @@
+(RoughDraft)
+
+
+## **Welcome to Memory Lane.**
+
+This application is for a family unit to add memories and keep track of family connections that they want to pass down for generations. 
+
+## **Getting Started**
+
+**New Users**
+
+To create an account, click “register”. You will need to submit your first name, last name, email address, and a password. You will also fill out your personal profile information when registering for an account. The profile information includes: date of birth, physical address, favorites, members of your household, your relation to other members of Memory Lane and a personal photo.
+
+**Registered Users**
+
+To log in, enter your email and password in the respective spots on the LogIn page that you used when creating your account. You can log out at any time by clicking the “log out” button in the upper right corner of the application. 
+
+**Memory Index**
+
+Users can add memories to the memory index by navigating to the “Memory Index” tab in the nav bar and clicking on the button to “ADD NEW”. Enter all the information for the memory in the form and click “submit”. The memory will be added to the recently added memories board on the home page as well as update your total number of memories submitted 'stat'. The notification will go to the leader board on the home screen along with the memo that was recorded when you entered the memory. The memo board holds 5 new memories at a time and then they are no longer shown on the home page and they are automatically stored. 
+
+**Adding Comments to Memories**
+
+Users can make comments by clicking the “add comment” button on any memory card. A form will then pop up and they will need to enter in the required information. Once they hit submit then the comment will be saved to the memory. 
+
+**Searching/Sorting Memories**
+
+Users have several options to view the stored memories. To view memories they will click the “Memory Index” tab in the nav bar, this page will give them several sort options through drop down menus. One drop down will sort by family member. One drop down will sort by category. One drop down will sort by location. They can also use the search bar and search by keyword. 
+
+**Searching/Sorting Family Members**
+
+Users have several options to view family members in the application. To view family members they will click the “Family Members” tab in the nav bar, this page will give them several sort options through drop down menus. One drop down will sort family members by their birthday month. One drop down will sort by their relation, for example: son, daughter,  or grandchild. They can also use the search bar and search by name. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
