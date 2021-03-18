@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -10,10 +10,10 @@ export const NavBar = (props) => {
                 <Link className="nav-link" to="/">Home</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/family">Family Members</Link>
+                <Link className="nav-link" to="/users">Family Members</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/index">Memory Index</Link>
+                <Link className="nav-link" to="/memories">Memory Index</Link>
             </li>
         </ul>
         </nav>

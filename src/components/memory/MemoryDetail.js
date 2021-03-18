@@ -19,12 +19,13 @@ export const MemoryDetail = () => {
     getMemoryById(memoryId)
     
     .then((memoryObjectFromAPI) => {
+      console.log(memoryObjectFromAPI)
       setMemory(memoryObjectFromAPI)
     })
     }, [])
 
     //defining a variable that will be referenced in the return as a  delete button
-  const handleRelease = () => {
+  const handleDelete = () => {
     deleteMemory(memory.id)
     .then(()=> {
       history.push("/memories")
@@ -35,18 +36,18 @@ export const MemoryDetail = () => {
     <section className="memory">
       <h3 className="memory__name">{memory.title}</h3>
       {/* the ? below is called optional chaining, you have to do this when using nested properties to not break the code of an empty object*/}
-      <div className="memory__category">{memory?.categoryId}</div>
-      <div className="memory__text">Text:{memory.text}</div>
+      <div className="memory__category">Category: {memory.category?.name}</div>
+      <div className="memory__text">Text: {memory.text}</div>
      
-      <div className="memory__author">{memory?.userId}</div>
+      <div className="memory__author">Written by: {memory.user?.name}</div>
 
       
       {/* when you click edit, it fetches the form that is filled out with the memoryId that matches */}
       <button onClick={() => {
-        history.push(`/memorys/edit/${memory.id}`)
+        history.push(`/memories/edit/${memory.id}`)
       }}>EDIT MEMORY</button>
       
-      <button onClick={handleRelease}>DELETE MEMORY</button>
+      <button onClick={handleDelete}>DELETE MEMORY</button>
     </section>
   )
 }

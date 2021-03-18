@@ -61,108 +61,103 @@ export const MemoryForm = () => {
     }
 
 
-    const handleClickSaveMemory = () => {
-        if (parseInt(memory.userId) === 0) {
-            window.alert("Please select a user")
-        } else {
+    const handleClickSaveMemory = (event) => {
+      event.preventDefault()
           //disable the button - no extra clicks
           setIsLoading(true);
           if (memoryId){
             //PUT - update
+            
             editMemory({
                 id: memory.id,
                 title: memory.title,
-                userId: parseInt(memory.userId),
-                customerId: parseInt(memory.categoryId),
+                userId: +localStorage.getItem("memorylane_user"),
+                categoryId: parseInt(memory.categoryId),
                 text: memory.text
             })
-            .then(() => history.push(`/memories/detail/${memory.id}`))
+            .then(() => history.push(`/memories`))
           }else {
             //POST - add
+          
             addMemory({
                 title: memory.title,
-                userId: parseInt(memory.userId),
-                customerId: parseInt(memory.categoryId),
+                userId: +localStorage.getItem("memorylane_user"),
+                categoryId: parseInt(memory.categoryId),
                 text: memory.text
 
             })
             .then(() => history.push("/memories"))
           }
-        }
+        
       }
 
       return (
-        <form className="memoryForm">
-            <h2 className="memoryForm__title">New memory</h2>
+        <>
+          <main className="container-fluid">
+            <div className="mt-2">
+              <h2 className="memoryForm__title">New Memory</h2>
+            </div>
+            <section>
+              <form className="memoryForm p-2"  onSubmit={handleClickSaveMemory}>
+                <fieldset className="col-6">
+                    <label htmlFor="title">Title:</label>
+                    <input 
+                      type="text" 
+                      id="title" 
+                      onChange={handleControlledInputChange} 
+                      required 
+                      autoFocus 
+                      className="form-control" 
+                      placeholder="Title" 
+                      defaultValue={memory.title}/>
+                </fieldset>
 
-            <fieldset>
-                <label htmlFor="title">Title:</label>
-                <input 
-                  type="text" 
-                  id="title" 
-                  onChange={handleControlledInputChange} 
-                  required 
-                  autoFocus 
-                  className="form-control" 
-                  placeholder="Title" 
-                  defaultValue={memory.title}/>
-            </fieldset>
+                <fieldset className="col-6">
+                    <label htmlFor="text">Text:</label>
+                    <input 
+                      type="text" 
+                      id="text" 
+                      onChange={handleControlledInputChange} 
+                      required 
+                      autoFocus 
+                      className="form-control textarea rows={5}" 
+                      placeholder="Text" 
+                      defaultValue={memory.text}/>
+                </fieldset>
 
-            <fieldset>
-                <label htmlFor="text">Text:</label>
-                <input 
-                  type="text" 
-                  id="text" 
-                  onChange={handleControlledInputChange} 
-                  required 
-                  autoFocus 
-                  className="form-control" 
-                  placeholder="Text" 
-                  defaultValue={memory.text}/>
-            </fieldset>
+                <fieldset className="col-6">
+                    <label htmlFor="category">Category:</label>
+                    <select 
+                      value={memory.categoryId} 
+                      name="category" 
+                      id="categoryId" 
+                      onChange= {handleControlledInputChange} 
+                      required
+                      className="form-control" >
+                    <option value="0">Select a category</option>
+                      {categories.map(currentCategory => (
+                        <option 
+                        key={currentCategory.id} 
+                        value={currentCategory.id}>
+                          {currentCategory.name}
+                        </option>
+                      ))}
+                    </select>   
+                </fieldset>
 
-            <fieldset>
-                <label htmlFor="user">Written By:</label>
-                <select 
-                  value={memory.userId} 
-                  name="userId" 
-                  id="userId" 
-                  onChange= {handleControlledInputChange} 
-                  className="form-control" >
-                <option value="0">Select a name</option>
-                  {users.map(currentUser => (
-                    <option key={currentUser.id} value={currentUser.id}>
-                      {currentUser.name}
-                    </option>
-                  ))}
-                </select>
-            </fieldset>
-
-            <fieldset>
-                <label htmlFor="category">Category:</label>
-                <select 
-                  value={memory.categoryId} 
-                  name="category" 
-                  id="categoryId" 
-                  onChange= {handleControlledInputChange} 
-                  className="form-control" >
-                <option value="0">Select a customer</option>
-                  {categories.map(currentCategory => (
-                    <option key={currentCategory.id} value={currentCategory.id}>
-                      {currentCategory.name}
-                    </option>
-                  ))}
-                </select>   
-            </fieldset>
-
-            <button className="btn btn-primary"
-          disabled={isLoading}
-          onClick={event => {
-            event.preventDefault() // Prevent browser from submitting the form and refreshing the page
-            handleClickSaveMemory()
-          }}>
-        {memoryId ? <>Save memory</> : <>Add memory</>}</button>
-        </form>
+                <fieldset>
+                  <button
+                    className="btn btn-primary"
+                    disabled={isLoading}
+                    type="submit"
+                   >
+                      {memoryId ? <>Save Memory</> : <>Add Memory</>}
+                  </button>
+                </fieldset>
+              </form>
+            </section>
+          </main>
+        </>
       )
   }
       
