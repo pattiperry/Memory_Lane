@@ -5,9 +5,11 @@ import {MemoryLane} from "./components/MemoryLane"
 import './index.css';
 
 ReactDOM.render(
-  <Router>
-    <MemoryLane/>
-  </Router>
-  , document.getElementById('root'))
-
+  <React.StrictMode>
+      <Router>
+          <MemoryLane />
+      </Router>
+  </React.StrictMode>,
+  document.getElementById("root")
+)
 
