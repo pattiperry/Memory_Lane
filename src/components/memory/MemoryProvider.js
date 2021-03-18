@@ -20,7 +20,7 @@ export const MemoryProvider = (props) => {
 
     //fetches all the info on memories from the database
     const getMemories = () => {
-        return fetch("http://localhost:8088/memories")
+        return fetch("http://localhost:8088/memories?_expand=user&_expand=category")
         .then(res => res.json())
         .then(setMemories)
     }
@@ -35,12 +35,13 @@ export const MemoryProvider = (props) => {
             body: JSON.stringify(memoryObject)
         })
         .then(response => response.json())
+        .then(getMemories)
     }
 
     //get a specific memory by the parameter of an id
     //this is how we make the detailed view for the memory and user cards
     const getMemoryById = (id) => {
-        return fetch(`http://localhost:8088/memories/${id}?_expand=user`)
+        return fetch(`http://localhost:8088/memories/${id}?_expand=user&_expand=category`)
             .then(res => res.json())
     }
 

@@ -8,9 +8,11 @@ export const MemoryCard = ({ memory }) => (
     <section className="memory">
         <h3 className="memory_title">
           {/* reacts way of doing atags= <link> */}
-          <Link to={`/memorys/detail/${memory.id}`}>
+          <Link to={`/memories/detail/${memory.id}`}>
             { memory.title }
           </Link>
         </h3>
+        <div className="memory_category">Category: {memory.category?.name}</div>
+        <div className="memory_author">Written by: {memory.user?.name}</div>
     </section>
 )

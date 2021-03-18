@@ -5,7 +5,7 @@ import { MemoryCard } from "./MemoryCard"
 import "./Memory.css"
 
 //memories will be displayed as hyperlinks,click on a memory title and a memory detail component will appear
-export const MemoryList = ({  }) => {
+export const MemoryList = ({}) => {
   const { getMemories, memories, searchTerms} = useContext(MemoryContext)
   const history = useHistory()
 
