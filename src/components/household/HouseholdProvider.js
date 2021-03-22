@@ -20,7 +20,7 @@ export const HouseholdProvider = (props) => {
 
     //fetches all the info on households from the database
     const getHouseholds = () => {
-        return fetch("http://localhost:8088/households")
+        return fetch("http://localhost:8088/households?_embed=users")
         .then(res => res.json())
         .then(setHousehold)
     }
@@ -41,7 +41,7 @@ export const HouseholdProvider = (props) => {
     //get a specific household by the parameter of an id
     //this is how we make the detailed view for the household and user cards
     const getHouseholdById = (id) => {
-        return fetch(`http://localhost:8088/households/${id}`)
+        return fetch(`http://localhost:8088/households/${id}?_embed=users`)
             .then(res => res.json())
     }
 

@@ -8,10 +8,12 @@ import {MemoryForm} from "./memory/MemoryForm"
 import {MemorySearch} from "./memory/MemorySearch"
 import {CategoryProvider} from "./category/CategoryProvider"
 import {UserProvider} from "./user/UserProvider"
+import {UserForm} from "./user/UserForm"
 import {HouseholdProvider} from "./household/HouseholdProvider"
 import {HouseholdList} from "./household/HouseholdList"
 import {HouseholdSearch} from "./household/HouseholdSearch"
 import {HouseholdForm} from "./household/HouseholdForm"
+import {HouseholdDetail} from "./household/HouseholdDetail"
 
 export const ApplicationViews = () => {
     return (
@@ -26,7 +28,18 @@ export const ApplicationViews = () => {
                     <HouseholdSearch />                    
                     <HouseholdList />
                 </Route>
-                <Route path="households/create">
+                <Route path="/households/create">
+                   <HouseholdForm />
+                </Route>
+                <Route path="/households/detail/:householdId(\d+)">
+                    <HouseholdDetail />
+                </Route>
+                <UserProvider>
+                    <Route path="/users/create">
+                        <UserForm />
+                    </Route>
+                </UserProvider>
+                <Route path="/households/edit/:householdId(\d+)">
                    <HouseholdForm />
                 </Route>
             </HouseholdProvider>

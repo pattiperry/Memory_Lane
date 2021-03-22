@@ -19,7 +19,7 @@ export const HouseholdForm = () => {
     const history = useHistory()
 
     
-    //Reach out to the world,get categories state and households state on initialization.
+    //Reach out to the world,get households state on initialization.
     //if householdId is in the URL, getHouseholdById
     useEffect(() => {
         getHouseholds().then(() => {
@@ -108,7 +108,7 @@ export const HouseholdForm = () => {
                     <label htmlFor="text">Address:</label>
                     <input 
                       type="text" 
-                      id="text" 
+                      id="address" 
                       onChange={handleControlledInputChange} 
                       required 
                       autoFocus 

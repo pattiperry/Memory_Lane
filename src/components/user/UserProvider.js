@@ -26,7 +26,7 @@ export const UserProvider = (props) => {
     }
 
     //uses a fetch call to get into the database, then adds a new user object to the database through the POST method
-    const addUsers = userObject => {
+    const addUser = userObject => {
         return fetch("http://localhost:8088/users", {
             method: "POST",
             headers: {
@@ -60,14 +60,14 @@ export const UserProvider = (props) => {
     /*
         You return a context provider which has the
         `users` state, `getUsers` function,
-        and the `addUsers` function as keys. This
+        and the `addUser` function as keys. This
         allows any child elements to access them.
     */
     return (
         //what we are actually exporting
         <UserContext.Provider value={{
             //these are the things that other components can use
-            users, getUsers, addUsers, getUserById, editUser, searchTerms, setSearchTerms
+            users, getUsers, addUser, getUserById, editUser, searchTerms, setSearchTerms
         }}>
             {props.children}
         </UserContext.Provider>
