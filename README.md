@@ -3,7 +3,7 @@
 
 ## **Welcome to Memory Lane.**
 
-This application is for a family unit to add memories and keep track of family connections that they want to pass down for generations. 
+This application is for a family unit to add memories and keep track of family connections they want to pass down for generations. 
 
 ## **Getting Started**
 
