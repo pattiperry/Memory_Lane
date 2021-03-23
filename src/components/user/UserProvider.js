@@ -39,8 +39,9 @@ export const UserProvider = (props) => {
 
     //get a specific user by the parameter of an id
     //this is how we make the detailed view for the user and user cards
-    const getUserById = (id) => {
-        return fetch(`http://localhost:8088/users/${id}?_expand=household`)
+    const getUserById = () => {
+        let userId = localStorage.getItem("memorylane_user")
+        return fetch(`http://localhost:8088/users/${userId}?_expand=household`)
             .then(res => res.json())
     }
 

@@ -23,6 +23,7 @@ export const HouseholdProvider = (props) => {
         return fetch("http://localhost:8088/households?_embed=users")
         .then(res => res.json())
         .then(setHousehold)
+
     }
 
     //uses a fetch call to get into the database, then adds a new household object to the database through the POST method

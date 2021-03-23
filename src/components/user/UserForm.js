@@ -15,6 +15,7 @@ export const UserForm = () => {
     const [user, setUser] = useState({})
     //wait for data before button is active
     const[isLoading, setIsLoading] = useState(true)
+    //search the url for a userId parameter 
     const {userId} = useParams()
     const history = useHistory()
 
@@ -59,9 +60,9 @@ export const UserForm = () => {
 
     const handleClickSaveUser = (event) => {
       event.preventDefault()
-          //disable the button - no extra clicks
+          //disable the button - no extra clicks, only allow me to submit the form once
         setIsLoading(true);
-
+        console.log("hello")
         //creates a new user object in the database        
         addUser({
             id: +localStorage.getItem("memorylane_user"),
@@ -93,20 +94,20 @@ export const UserForm = () => {
         <>
         <main className="container-fluid">
             <div className="mt-2">
-              <h2 className="userForm__title">New user</h2>
+              <h2 className="userForm__title">New Profile</h2>
             </div>
             <section>
             <form className="form--login" onSubmit={handleClickSaveUser}>
-                <h1 className="h3 mb-3 font-weight-normal">Create a Family Member's Profile</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Create a Family Member Profile</h1>
                 <fieldset>
-                    <label htmlFor="name"> First Name </label>
+                    <label htmlFor="name"> Name </label>
                     <input 
                     onChange={handleControlledInputChange}
                     value={user.name} 
                     type="text" 
                     id="name" 
                     className="form-control" 
-                    placeholder="First name" 
+                    placeholder="Name" 
                     required 
                     autoFocus />
                 </fieldset>
@@ -130,7 +131,7 @@ export const UserForm = () => {
                     id="email" 
                     className="form-control" 
                     placeholder="Email" 
-                    required />
+                     />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="phone"> Phone Number </label>
@@ -141,7 +142,7 @@ export const UserForm = () => {
                     id="phone" 
                     className="form-control" 
                     placeholder="Phone Number" 
-                    required />
+                     />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="candy"> Favorite Candy </label>
@@ -152,7 +153,7 @@ export const UserForm = () => {
                     id="candy" 
                     className="form-control" 
                     placeholder="Favorite Candy" 
-                    required />
+                     />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="dessert"> Favorite Dessert </label>
@@ -163,7 +164,7 @@ export const UserForm = () => {
                     id="dessert" 
                     className="form-control" 
                     placeholder="Favorite Dessert" 
-                    required />
+                     />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="food"> Favorite Food/Restaurant </label>
@@ -174,7 +175,7 @@ export const UserForm = () => {
                     id="food" 
                     className="form-control"
                      placeholder="Favorite Food/Restaurant" 
-                     required />
+                      />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="drink"> Favorite Drink </label>
@@ -185,7 +186,7 @@ export const UserForm = () => {
                     id="drink" 
                     className="form-control" 
                     placeholder="Favorite Drink" 
-                    required />
+                     />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="hobby"> Favorite Hobby/Past-time </label>
@@ -196,7 +197,7 @@ export const UserForm = () => {
                     id="hobby" 
                     className="form-control" 
                     placeholder="Favorite Hobby/Past-time" 
-                    required />
+                     />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="place"> Favorite Place To Go </label>
@@ -207,7 +208,7 @@ export const UserForm = () => {
                     id="place" 
                     className="form-control" 
                     placeholder="Favorite Place To Go" 
-                    required />
+                     />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="season"> Favorite Season of the Year </label>
@@ -218,7 +219,7 @@ export const UserForm = () => {
                     id="season" 
                     className="form-control" 
                     placeholder="Favorite Season of the Year" 
-                    required />
+                     />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="movie"> Favorite Show/Movie </label>
@@ -229,7 +230,7 @@ export const UserForm = () => {
                     id="movie" 
                     className="form-control" 
                     placeholder="Favorite Show/Movie" 
-                    required />
+                     />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="music"> Favorite Music/Musician </label>
@@ -240,7 +241,7 @@ export const UserForm = () => {
                     id="music" 
                     className="form-control" 
                     placeholder="Favorite Music/Musician" 
-                    required />
+                     />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="scent"> Favorite Scent </label>
@@ -251,7 +252,7 @@ export const UserForm = () => {
                     id="scent" 
                     className="form-control" 
                     placeholder="Favorite Scent" 
-                    required />
+                     />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="color"> Favorite Color </label>
@@ -262,7 +263,7 @@ export const UserForm = () => {
                     id="color" 
                     className="form-control" 
                     placeholder="Favorite Color" 
-                    required />
+                     />
                 </fieldset>
                 
 
@@ -271,7 +272,8 @@ export const UserForm = () => {
                     <button 
                     className="btn btn-primary"
                     disabled={isLoading}
-                    type="submit"> Add Family Member </button>
+                    type="submit">{userId} Add Family Member 
+                    </button>
                 </fieldset>
             </form>
             </section>
