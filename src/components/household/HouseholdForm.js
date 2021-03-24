@@ -78,7 +78,7 @@ export const HouseholdForm = () => {
                 address: household.address
 
             })
-            //after a new household object is created this will take you back to the updated list of all households
+            //after a new household object is created this will take you back to the updated list of households
             .then(() => history.push("/households"))
           }
         
