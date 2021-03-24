@@ -35,6 +35,9 @@ export const ApplicationViews = () => {
                     <Route path="/users/create/:householdId(\d+)">
                         <UserForm />
                     </Route>
+                    <Route path="/users/edit/:householdId(\d+)">
+                        <UserForm />
+                    </Route>
                     <Route path="/households/detail/:householdId(\d+)">
                         <HouseholdDetail />
                     </Route>

@@ -38,6 +38,12 @@ export const UserProvider = (props) => {
     }
 
     //get a specific user by the parameter of an id
+    const getSpecificUserById = (id) => {
+        return fetch(`http://localhost:8088/users/${id}?_expand=household`)
+            .then(res => res.json())
+    }
+
+    //get the logged in user by id
     //this is how we make the detailed view for the user and user cards
     const getUserById = () => {
         let userId = localStorage.getItem("memorylane_user")
@@ -68,7 +74,7 @@ export const UserProvider = (props) => {
         //what we are actually exporting
         <UserContext.Provider value={{
             //these are the things that other components can use
-            users, getUsers, addUser, getUserById, editUser, searchTerms, setSearchTerms
+            users, getUsers, addUser, getUserById, editUser, searchTerms, setSearchTerms, getSpecificUserById
         }}>
             {props.children}
         </UserContext.Provider>

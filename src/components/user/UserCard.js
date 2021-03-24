@@ -1,38 +1,33 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import {useParams, useHistory} from "react-router-dom"
-import {HouseholdContext} from "../household/HouseholdProvider"
 import {UserContext} from "./UserProvider"
 import "./User.css"
 
 export const UserCard = ({user}) => {
-
-    // const{getHouseholdById, editUser} = useContext(HouseholdContext)
-    // const{getUserById} = useContext(UserContext)
-
-    // const[userId, setUserId] = useState([])
-    // const[household, setHousehold] = useState([])
+    const{getUserById} = useContext(UserContext)
+    const [currentUser, setCurrentUser] = useState({})
     
-    // const {householdId} = useParams()
-    // const history = useHistory()
+    const {householdId} = useParams()
+    const history = useHistory()
 
-    // useEffect(()=> {
-    //     let userId = localStorage.getItem("memorylane_user")
-    //     console.log(userId)
+    useEffect(()=> {
+        let userId = localStorage.getItem("memorylane_user")
+        console.log(userId)
 
-    //     getUserById(userId).then(setUserId)
-    //     .then(()=> {
-    //         getHouseholdById(householdId).then(setHousehold)
-    //     })
-    // }, [])
+       getUserById(userId).then(setCurrentUser)
+         .then(()=> {
+             
+         })
+     }, [])
 
 
     return (
         <section className="user">
-                {/* {user.householdId === +householdId ?
+                {currentUser.householdId === +householdId ?
                 <button onClick={() => {
-                        history.push(`/households/edit/${household.id}`)
+                        history.push(`/users/edit/${user.id}`)
                     }}>Edit</button>
-                    : <> </> } */}
+                    : <> </> }
 
                 <h3 className="user__name">{user.name}</h3>
                 <p className="user_email">Email: {user.email}</p>

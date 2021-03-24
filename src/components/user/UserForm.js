@@ -2,13 +2,12 @@ import React, { useContext, useEffect, useState } from "react"
 import { UserContext } from "./UserProvider"
 import "./User.css"
 import { useHistory, useParams } from 'react-router-dom';
-import {HouseholdContext} from "../household/HouseholdProvider"
+
 
 export const UserForm = () => {
-    const { addUser, getUserById, editUser, getUsers } = useContext(UserContext)
-    const {getHouseholdById} = useContext(HouseholdContext)   
-    // const [household, setHousehold] = useState (0)
-
+    const { addUser, getSpecificUserById,editUser} = useContext(UserContext)
+    
+   
     //Define the initial state of the form inputs with useState()
     const [user, setUser] = useState({})
     //wait for data before button is active
@@ -19,30 +18,15 @@ export const UserForm = () => {
     const history = useHistory()
 
     
-    //Reach out to the world,getUsers state on initialization.
-    //if householdId is in the URL, getHouseholdById
-    // useEffect(() => {
-    //   let userId = localStorage.getItem("memorylane_user")
-    //     getUsers().then(() => {
-    //       if (userId){
-    //         getUserById(userId)
-    //         .then(setUser)
-          
-    //       .then(()=>
-    //         getHouseholdById(householdId))
-    //         setIsLoading(false)
-    //       }
-    //       } else {
-    //         setIsLoading(false)
-    //       }
-    //     })
-    // }, [])
-
-    // useEffect(() => {
-    //   let userId = localStorage.getItem("memorylane_user")
-    //   // get the logged in user's whole object from the database
-
-    // }, [])
+    //Reach out to the world,getUsers
+    useEffect(() => {
+      
+      console.log(householdId)
+      // get the logged in user's whole object from the database
+     
+      getSpecificUserById(householdId).then(setUser)
+      
+    }, [])
   
 
 //2RULES to remember with react:
@@ -65,37 +49,60 @@ export const UserForm = () => {
       setUser(newUser)
     }
 
-
     const handleClickSaveUser = (event) => {
       event.preventDefault()
       console.log("this should be the household id", householdId)
           //disable the button - no extra clicks, only allow me to submit the form once
         setIsLoading(true);
-        //creates a new user object in the database        
+        if(user.id){
+         
+          //PUT-update
+        editUser({
+          id: user.id,
+          name: user.name,
+          dob: user.dob,
+          email: user.email,
+          phone: user.phone,
+          candy: user.candy,
+          dessert: user.dessert,
+          food: user.food,
+          drink: user.drink,
+          place: user.place,
+          season: user.season,
+          scent: user.scent,
+          movie: user.movie,
+          music: user.music,
+          hobby: user.hobby,
+          color: user.color,
+          householdId: +householdId
+        })
+        .then(()=>history.push(`/households/detail/${householdId}`))
+        } else {
+          //POST-add
+          //creates a new user object in the database        
         addUser({
            
-            name: user.name,
-            dob: user.dob,
-            email: user.email,
-            phone: user.phone,
-            candy: user.candy,
-            dessert: user.dessert,
-            food: user.food,
-            drink: user.drink,
-            place: user.place,
-            season: user.season,
-            scent: user.scent,
-            movie: user.movie,
-            music: user.music,
-            hobby: user.hobby,
-            color: user.color,
-            householdId: +householdId
+          name: user.name,
+          dob: user.dob,
+          email: user.email,
+          phone: user.phone,
+          candy: user.candy,
+          dessert: user.dessert,
+          food: user.food,
+          drink: user.drink,
+          place: user.place,
+          season: user.season,
+          scent: user.scent,
+          movie: user.movie,
+          music: user.music,
+          hobby: user.hobby,
+          color: user.color,
+          householdId: +householdId
 
-        })
-        //after a new object is created this will take you back to the updated list of all users
-        // .then(() => history.push("/households"))
-        // .then(() => history.push("/users"))
-        .then(() => history.push(`/households/detail/${householdId}`))
+      })
+      //after a new object is created this will take you back to the household detail page
+      .then(() => history.push(`/households/detail/${householdId}`))
+      }
     }
         
       
@@ -309,7 +316,7 @@ export const UserForm = () => {
                     className="btn btn-primary"
                     disabled={isLoading}
                     type="submit">
-                      <>Add Family Member</>
+                     {user.id ? <>Save Profile</>: <>Add Family Member</>}
                   </button>
                 </fieldset>
               </form>
