@@ -70,7 +70,7 @@ export const CommentForm = () => {
                 userId: userId,
                 memoryId: parseInt(memoryId),
                 text: comment.text,
-                timeStamp: Date.now()
+                timeStamp: new Date().toLocaleTimeString()
             })
             .then(() => {
                 console.log("stop")
