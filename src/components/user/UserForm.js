@@ -12,9 +12,11 @@ export const UserForm = () => {
     const [user, setUser] = useState({})
     //wait for data before button is active
     const[isLoading, setIsLoading] = useState(false)
-    //search the url for a householdId parameter 
-    
+
+    //search the url for a householdId parameter
+    //householdId is referencing the userId in the URL 
     const {householdId} = useParams()
+    const {specificUserId} = useParams()
     const history = useHistory()
 
     
@@ -24,7 +26,7 @@ export const UserForm = () => {
       console.log(householdId)
       // get the logged in user's whole object from the database
      
-      getSpecificUserById(householdId).then(setUser)
+      getSpecificUserById(specificUserId).then(setUser)
       
     }, [])
   
@@ -51,14 +53,14 @@ export const UserForm = () => {
 
     const handleClickSaveUser = (event) => {
       event.preventDefault()
-      console.log("this should be the household id", householdId)
+      console.log("this should be the household id", specificUserId)
           //disable the button - no extra clicks, only allow me to submit the form once
         setIsLoading(true);
         if(user.id){
          
           //PUT-update
         editUser({
-          id: user.id,
+          id: specificUserId,
           name: user.name,
           dob: user.dob,
           email: user.email,
@@ -74,9 +76,9 @@ export const UserForm = () => {
           music: user.music,
           hobby: user.hobby,
           color: user.color,
-          householdId: +householdId
+          householdId: user.householdId
         })
-        .then(()=>history.push(`/households/detail/${householdId}`))
+        .then(()=>history.push(`/households/detail/${user.householdId}`))
         } else {
           //POST-add
           //creates a new user object in the database        

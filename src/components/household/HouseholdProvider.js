@@ -26,6 +26,20 @@ export const HouseholdProvider = (props) => {
 
     }
 
+
+    //use this fetch call to only change one key in the object, PATCH method
+    //use this fetch call when a user joins a household
+    const joinHousehold = (id,householdId) => {
+        return fetch(`http://localhost:8088/users/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({householdId})
+        })
+        .then(res=>res.json())
+    }
+
     //uses a fetch call to get into the database, then adds a new household object to the database through the POST method
     const addHousehold = householdObject => {
         return fetch("http://localhost:8088/households", {
@@ -58,6 +72,14 @@ export const HouseholdProvider = (props) => {
           .then(getHouseholds)
     }
     
+     //delete a memory from the database
+     const deleteHousehold = householdId => {
+        return fetch(`http://localhost:8088/households/${householdId}`, {
+            method: "DELETE"
+        })
+        .then(getHouseholds)
+    }
+
     /*
         You return a context provider which has the
         `households` state, `getHouseholds` function,
@@ -68,7 +90,7 @@ export const HouseholdProvider = (props) => {
         //what we are actually exporting
         <HouseholdContext.Provider value={{
             //these are the things that other components can use
-            households, getHouseholds, addHousehold, getHouseholdById, editHousehold, searchTerms, setSearchTerms
+            households, getHouseholds, addHousehold, getHouseholdById, editHousehold, searchTerms, setSearchTerms, joinHousehold, deleteHousehold
         }}>
             {props.children}
         </HouseholdContext.Provider>

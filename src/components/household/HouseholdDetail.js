@@ -7,7 +7,7 @@ import { UserContext } from "../user/UserProvider"
 
 
 export const HouseholdDetail = () => {
-  const {getHouseholdById} = useContext(HouseholdContext)
+  const {getHouseholdById, deleteHousehold} = useContext(HouseholdContext)
   const {getUserById} = useContext(UserContext) 
 	const [household, setHousehold] = useState({})
   const [user, setUser] = useState({})
@@ -30,15 +30,19 @@ export const HouseholdDetail = () => {
         setHousehold(householdObjectFromAPI)
       )}, [])
 
-  
-    // (user.userId === localStorage.getItem("memorylane_user"))
-  
-    // users.filter(user=> {
-  //   if(user.householdId === householdId){return  <button onClick={() => {
-  //     history.push(`/households/edit/${household.id}`)
-  //   }}>Edit</button>}
-  // })
-    
+  //defining a variable that will be referenced in the return as a  delete button
+  const handleDelete = () => {
+        
+   if( window.confirm("Are you sure you want to delete this household?")){
+   
+    deleteHousehold(householdId)
+    .then(()=> {
+      history.push("/households")
+    })
+     
+  }
+  }
+   
   return (
     <>
  
@@ -48,14 +52,16 @@ export const HouseholdDetail = () => {
       {/* this ternary operator only allows the edit button for the household card to be visible to the users that belong in that household(the householdId on the user object matches the householdId)  */}
         {user.householdId === +householdId ?
           <button onClick={() => {
-                history.push(`/households/edit/${household.id}`)
-              }}>Edit</button>
-              : <> </> }
+            history.push(`/households/edit/${household.id}`)
+          }}>Edit</button>
+          : <> </> }
 
         <button onClick={() => {
                 history.push(`/users/create/${household.id}`)
               }}>Add Family Member</button>
 
+        <button onClick={handleDelete }>DELETE HOUSEHOLD</button>
+        
         {/* the ? below is called optional chaining, you have to do this when using nested properties to not break the code of an empty object*/}
         <div className="current_users">Family Members: {household.users?.map(currentuser=> {
           return < UserCard 
