@@ -20,7 +20,7 @@ export const CommentProvider = (props) => {
 
     //fetches all the info on comments from the database
     const getComments = (memoryId) => {
-        return fetch(`http://localhost:8088/comments?memoryId=${memoryId}`)
+        return fetch(`http://localhost:8088/comments?memoryId=${memoryId}&_expand=user`)
         .then(res => res.json())
         .then(setComments)
     }
