@@ -8,6 +8,14 @@ import {MemoryForm} from "./memory/MemoryForm"
 import {MemorySearch} from "./memory/MemorySearch"
 import {CategoryProvider} from "./category/CategoryProvider"
 import {UserProvider} from "./user/UserProvider"
+import {UserForm} from "./user/UserForm"
+import {HouseholdProvider} from "./household/HouseholdProvider"
+import {HouseholdList} from "./household/HouseholdList"
+import {HouseholdSearch} from "./household/HouseholdSearch"
+import {HouseholdForm} from "./household/HouseholdForm"
+import {HouseholdDetail} from "./household/HouseholdDetail"
+import {CommentProvider} from "./comment/CommentProvider"
+import {CommentForm} from "./comment/CommentForm"
 
 export const ApplicationViews = () => {
     return (
@@ -17,23 +25,59 @@ export const ApplicationViews = () => {
                 <Home />
             </Route>
 
-            <MemoryProvider>
-                <Route exact path="/memories">
-                    <MemorySearch />
-                    <MemoryList />
-                </Route>
-                <Route path= "/memories/detail/:memoryId(\d+)">
-                    <MemoryDetail />
-                </Route>
+            <HouseholdProvider>
+                <UserProvider>
+                    <Route exact path="/households" >
+                        <HouseholdSearch />                    
+                        <HouseholdList />
+                    </Route>
+                    <Route path="/households/create">
+                        <HouseholdForm />
+                    </Route>
+                    
+                        <Route path="/users/create/:householdId(\d+)">
+                            <UserForm />
+                        </Route>
+                        {/* householdId is referring to usersId for the userForm */}
+                        <Route path="/users/edit/:specificUserId(\d+)">
+                            <UserForm />
+                        </Route>
+                        <Route path="/households/detail/:householdId(\d+)">
+                            <HouseholdDetail />
+                        </Route>
+                    
+                    <Route path="/households/edit/:householdId(\d+)">
+                        <HouseholdForm />
+                    </Route>
+                </UserProvider>
+            </HouseholdProvider>
 
+
+            <MemoryProvider>
                 <CategoryProvider>
                     <UserProvider>
-                        <Route path="/memories/edit/:memoryId(\d+)">
-                            <MemoryForm />
-                        </Route> 
-                        <Route path="/memories/create">
-                            <MemoryForm />
-                        </Route>  
+                        <CommentProvider>
+                            <Route exact path="/memories">
+                                <MemorySearch />
+                                <MemoryList />
+                            </Route>
+                            <Route path= "/memories/detail/:memoryId(\d+)">
+                                <MemoryDetail />
+                            </Route>
+                            <Route exact path="/comments/create/:memoryId(\d+)">
+                                <CommentForm />
+                            </Route> 
+                            <Route path="/comments/edit/:memoryId(\d+)">
+                                <CommentForm />
+                            </Route> 
+                        
+                            <Route path="/memories/edit/:memoryId(\d+)">
+                                <MemoryForm />
+                            </Route> 
+                            <Route path="/memories/create">
+                                <MemoryForm />
+                            </Route>  
+                        </CommentProvider>
                     </UserProvider>
                 </CategoryProvider>
             </MemoryProvider>

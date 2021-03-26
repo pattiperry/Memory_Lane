@@ -2,12 +2,14 @@ import React, { useContext, useEffect, useState } from "react"
 import { MemoryContext } from "./MemoryProvider"
 import "./Memory.css"
 import { useParams, useHistory } from "react-router-dom"
+import {CommentContext} from "../comment/CommentProvider"
 
 //build a function that displays the details of the memoryCard
 export const MemoryDetail = () => {
   const { getMemoryById, deleteMemory } = useContext(MemoryContext)
-
+  const {getComments} = useContext(CommentContext)
 	const [memory, setMemory] = useState({})
+  const [comment, setComment] = useState({})
 
     //useParams allows the app to read a parameter from the URL
 	const {memoryId} = useParams();
@@ -22,6 +24,7 @@ export const MemoryDetail = () => {
       console.log(memoryObjectFromAPI)
       setMemory(memoryObjectFromAPI)
     })
+    getComments().then(setComment)
     }, [])
 
     //defining a variable that will be referenced in the return as a  delete button
@@ -32,6 +35,7 @@ export const MemoryDetail = () => {
     })
   }
 
+  
   return (
     <section className="memory">
       <h3 className="memory__name">{memory.title}</h3>
@@ -47,6 +51,10 @@ export const MemoryDetail = () => {
         history.push(`/memories/edit/${memory.id}`)
       }}>EDIT MEMORY</button>
       
+      <button onClick={()=>{
+        history.push(`/comments/create/${memory.id}`)
+      }}> ADD COMMENT </button>
+
       <button onClick={handleDelete}>DELETE MEMORY</button>
     </section>
   )
