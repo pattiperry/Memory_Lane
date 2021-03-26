@@ -19,15 +19,15 @@ export const CommentProvider = (props) => {
     const [searchTerms, setSearchTerms] = useState("")
 
     //fetches all the info on comments from the database
-    const getComments = () => {
-        return fetch("http://localhost:8088/comments?_expand=user&_expand=memory")
+    const getComments = (memoryId) => {
+        return fetch(`http://localhost:8088/comments?memoryId=${memoryId}`)
         .then(res => res.json())
         .then(setComments)
     }
 
     //uses a fetch call to get into the database, then adds a new comment object to the database through the POST method
     const addComment = commentObject => {
-        return fetch("http://localhost:8088/comments", {
+        return fetch(`http://localhost:8088/comments`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -35,7 +35,7 @@ export const CommentProvider = (props) => {
             body: JSON.stringify(commentObject)
         })
        
-        .then(getComments)
+        .then(()=>getComments(commentObject.memoryId))
     }
 
     //get a specific comment by the parameter of an id
@@ -49,7 +49,7 @@ export const CommentProvider = (props) => {
         return fetch(`http://localhost:8088/comments/${commentId}`, {
             method: "DELETE"
         })
-            .then(getComments)
+           
     }
 
     //edit a comment from the database

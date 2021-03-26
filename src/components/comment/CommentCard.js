@@ -1,5 +1,5 @@
 import React from "react"
-import "./Customer.css"
+import "./Comment.css"
 
 export const CommentCard = ({comment}) => (
     <section className="comment">
