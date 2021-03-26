@@ -22,7 +22,7 @@ export const MemoryList = ({}) => {
   useEffect(() => {
     if (searchTerms !== "") {
       //if the search field is not blank, display matching memories
-      const subset = memories.filter(currentMemory => currentMemory.title.toLowerCase().includes(searchTerms))
+      const subset = memories.filter(currentMemory => currentMemory.title.toLowerCase().includes(searchTerms) || currentMemory.text.toLowerCase().includes(searchTerms))
       setFiltered(subset)
     } else {
       //if the search field is blank, display all memories
