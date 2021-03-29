@@ -25,9 +25,7 @@ export const ApplicationViews = () => {
             <MemoryProvider>
                 <Route exact path="/">
                     <Home />
-                    <RecentlySubmitted />
-                </Route>
-               
+                </Route> 
             </MemoryProvider>
 
             <HouseholdProvider>
