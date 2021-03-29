@@ -16,14 +16,19 @@ import {HouseholdForm} from "./household/HouseholdForm"
 import {HouseholdDetail} from "./household/HouseholdDetail"
 import {CommentProvider} from "./comment/CommentProvider"
 import {CommentForm} from "./comment/CommentForm"
+import {RecentlySubmitted} from "./RecenetlySubmitted"
 
 export const ApplicationViews = () => {
     return (
         <>
             {/* Render the location list when http://localhost:3000/ */}
-            <Route exact path="/">
-                <Home />
-            </Route>
+            <MemoryProvider>
+                <Route exact path="/">
+                    <Home />
+                    <RecentlySubmitted />
+                </Route>
+               
+            </MemoryProvider>
 
             <HouseholdProvider>
                 <UserProvider>
