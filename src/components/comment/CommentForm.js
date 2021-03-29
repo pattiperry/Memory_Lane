@@ -70,12 +70,11 @@ export const CommentForm = () => {
                 userId: userId,
                 memoryId: parseInt(memoryId),
                 text: comment.text,
-                timeStamp: Date.now()
+                timeStamp: new Date().toLocaleTimeString()
             })
             .then(() => {
-                console.log("stop")
-                debugger
-                history.push(`/memories/details/${memoryId}`)})
+                setIsLoading(false)})
+                setComment({text:""})
           //}
         
       }
@@ -84,12 +83,12 @@ export const CommentForm = () => {
         <>
           <main className="container-fluid">
             <div className="mt-2">
-              <h2 className="commentForm__title">Comment</h2>
+              <h2 className="commentForm__title"></h2>
             </div>
             <section>
               <form className="commentForm p-2"  onSubmit={handleClickSaveComment}>
                 <fieldset className="col-6">
-                    <label htmlFor="title">Comment:</label>
+                    <label htmlFor="title"></label>
                     <input 
                       type="text" 
                       id="text" 
@@ -97,7 +96,8 @@ export const CommentForm = () => {
                       required 
                       autoFocus 
                       className="form-control"  
-                      defaultValue={comment.text}/>
+                      placeholder="Add your comment here"
+                      value={comment.text}/>
                 </fieldset>
 
                 <fieldset>

@@ -64,7 +64,7 @@ export const ApplicationViews = () => {
                             <Route path= "/memories/detail/:memoryId(\d+)">
                                 <MemoryDetail />
                             </Route>
-                            <Route exact path="/comments/create/:memoryId(\d+)">
+                            <Route path="/memories/create/:memoryId(\d+)">
                                 <CommentForm />
                             </Route> 
                             <Route path="/comments/edit/:memoryId(\d+)">
