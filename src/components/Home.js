@@ -13,6 +13,10 @@ export const Home = ({memory}) => {
     
     const topUsers = newUserArray.sort((a,b)=> b.memoriesLength - a.memoriesLength).slice(0,5)
     
+    const firstPlace = topUsers[0]?.name
+    const secondPlace = topUsers[1]?.name
+    const thirdPlace = topUsers[2]?.name
+    
     return(
     <>
         <h1>Welcome to Memory Lane</h1>
