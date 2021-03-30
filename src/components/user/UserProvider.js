@@ -20,7 +20,7 @@ export const UserProvider = (props) => {
 
     //fetches all the info on users from the database
     const getUsers = () => {
-        return fetch("http://localhost:8088/users")
+        return fetch("http://localhost:8088/users?_embed=memories")
         .then(res => res.json())
         .then(setUser)
     }

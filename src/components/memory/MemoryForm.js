@@ -74,7 +74,7 @@ export const MemoryForm = () => {
                 userId: +localStorage.getItem("memorylane_user"),
                 categoryId: parseInt(memory.categoryId),
                 text: memory.text,
-                // timeStamp: Date.now()
+                timeStamp: +Date.now()
 
             })
             .then(() => history.push(`/memories`))
@@ -86,8 +86,7 @@ export const MemoryForm = () => {
                 userId: +localStorage.getItem("memorylane_user"),
                 categoryId: parseInt(memory.categoryId),
                 text: memory.text,
-                // timeStamp: Date.now()
-
+                timeStamp: +Date.now()
             })
             .then(() => history.push("/memories"))
           }
