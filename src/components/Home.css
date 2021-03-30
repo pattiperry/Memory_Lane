@@ -1,0 +1,15 @@
+.leader_section {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    margin-top: 10em;
+    margin-bottom: 8em 
+}
+
+.leaderboard_image {
+    display: flex;
+    flex-direction: column;
+    height: 40vw;
+    width: 30vw;
+    border:black 1px solid;
+}

@@ -54,10 +54,6 @@ export const MemoryDetail = () => {
       }}>EDIT MEMORY</button>
       :<> </>}
       
-      {/* <button onClick={()=>{
-        history.push(`/comments/create/${memory.id}`)
-      }}> ADD COMMENT </button> */}
-
       {/* this ternary operator is only making the edit button show for the user who submitted the memory */}
       {+userId === memory.userId ?
       <button onClick={handleDelete}>DELETE MEMORY</button>
