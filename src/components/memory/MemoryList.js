@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { MemoryContext } from "./MemoryProvider"
 import { MemoryCard } from "./MemoryCard"
 import "./Memory.css"
+import Button from 'react-bootstrap/Button'
 
 //memories will be displayed as hyperlinks,click on a memory title and a memory detail component will appear
 export const MemoryList = ({}) => {
@@ -34,11 +35,12 @@ export const MemoryList = ({}) => {
 
   return (
       <>
-          <h1>Memory Index</h1>
+          <h1 className="memory_index_title">Memory Index</h1>
 
-          <button onClick={() => history.push("/memories/create")}>
+          <Button variant="secondary" onClick={() => history.push("/memories/create")}>
               ADD NEW MEMORY
-          </button>
+          </Button>
+
           <div className="memories">
             {/* {console.log("MemoryList: Render", memories)} */}
               {

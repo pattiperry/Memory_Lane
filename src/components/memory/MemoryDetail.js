@@ -6,6 +6,8 @@ import {CommentContext} from "../comment/CommentProvider"
 import {CommentForm} from "../comment/CommentForm"
 import {CommentList} from "../comment/CommentList"
 import {UserContext} from "../user/UserProvider"
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 //build a function that displays the details of the memoryCard
 export const MemoryDetail = () => {
@@ -45,28 +47,38 @@ export const MemoryDetail = () => {
 
   
   return (
+    <Card>
     <section className="memory">
       {/* when you click edit, it fetches the form that is filled out with the memoryId that matches */}
       {/* this ternary operator is only making the edit button show for the user who submitted the memory */}
       {+userId === memory.userId ?
-      <button onClick={() => {
+      <Button variant="secondary" onClick={() => {
         history.push(`/memories/edit/${memory.id}`)
-      }}>EDIT MEMORY</button>
+      }}>EDIT MEMORY</Button>
       :<> </>}
       
-      {/* this ternary operator is only making the edit button show for the user who submitted the memory */}
+      {/* this ternary operator is only making the edit Button show for the user who submitted the memory */}
       {+userId === memory.userId ?
-      <button onClick={handleDelete}>DELETE MEMORY</button>
+      <Button variant="secondary" onClick={handleDelete}>DELETE MEMORY</Button>
       :<> </>}
 
+      <Card.Body>
+      <Card.Title>
       <h3 className="memory__name">{memory.title}</h3>
+      </Card.Title>
 
+      <Card.Text>  
       {/* the ? below is called optional chaining, you have to do this when using nested properties to not break the code of an empty object*/}
       <div className="memory__category">Category: {memory.category?.name}</div>
-
+      </Card.Text>
+      
+      <Card.Text>
       <div className="memory__text">Text: {memory.text}</div>
-     
+      </Card.Text>
+
+      <footer className="blcokquote-footer">
       <div className="memory__author">Written by: {memory.user?.name}</div>
+      </footer>
 
       {/* shows a comment form on each memory detail card */}
       <div className="memory_comment_form">
@@ -74,14 +86,15 @@ export const MemoryDetail = () => {
       </div>
 
       {/* shows the comments that go with each individual memory and print them on the memory detail card */}
-     
+      
       <div className="memory_comments">
       {<CommentList key={comment} comment={comment} memoryId={memoryId}/>}</div>
-     
+      
       
 
       
-      
+      </Card.Body>
     </section>
+    </Card>
   )
 }
