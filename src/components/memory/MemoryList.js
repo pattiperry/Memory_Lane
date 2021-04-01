@@ -35,9 +35,9 @@ export const MemoryList = ({}) => {
 
   return (
       <>
-          <h1 className="memory_index_title">Memory Index</h1>
+          <h1 className="page_title">Memory Index</h1>
 
-          <Button variant="secondary" onClick={() => history.push("/memories/create")}>
+          <Button variant="dark"   onClick={() => history.push("/memories/create")}>
               ADD NEW MEMORY
           </Button>
 

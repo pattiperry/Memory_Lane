@@ -47,19 +47,19 @@ export const MemoryDetail = () => {
 
   
   return (
-    <Card>
+    <Card style={{ width: '45rem' }} >
     <section className="memory">
       {/* when you click edit, it fetches the form that is filled out with the memoryId that matches */}
       {/* this ternary operator is only making the edit button show for the user who submitted the memory */}
       {+userId === memory.userId ?
-      <Button variant="secondary" onClick={() => {
+      <Button variant="dark" onClick={() => {
         history.push(`/memories/edit/${memory.id}`)
       }}>EDIT MEMORY</Button>
       :<> </>}
       
       {/* this ternary operator is only making the edit Button show for the user who submitted the memory */}
       {+userId === memory.userId ?
-      <Button variant="secondary" onClick={handleDelete}>DELETE MEMORY</Button>
+      <Button variant="dark" onClick={handleDelete}>DELETE MEMORY</Button>
       :<> </>}
 
       <Card.Body>
@@ -73,11 +73,11 @@ export const MemoryDetail = () => {
       </Card.Text>
       
       <Card.Text>
-      <div className="memory__text">Text: {memory.text}</div>
+      <div className="memory__text"> {memory.text}</div>
       </Card.Text>
 
-      <footer className="blcokquote-footer">
-      <div className="memory__author">Written by: {memory.user?.name}</div>
+      <footer className="blockquote-footer">
+      <div className="memory__author"> {memory.user?.name}</div>
       </footer>
 
       {/* shows a comment form on each memory detail card */}

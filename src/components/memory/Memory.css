@@ -2,19 +2,16 @@
 .memories {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-top: 1em;
   }
   
   .memory {
       flex-basis: 28%;
-      margin: 1em;
-      padding: 1em;
-      /* border: 1px solid black; */
+     
   }
 
-  .memory_index_title {
-      text-align: center;
+   
+  .text-center {
+      margin-bottom: 2px;
   }
-
-  

@@ -8,11 +8,11 @@ export const MemorySearch = () => {
 
   return (
     <>
-      Memory search:
+     
       <input type="text"
-        className="input--wide"
+        className="input--wide search rounded "
         onKeyUp={(event) => setSearchTerms(event.target.value)}
-        placeholder="Search for a memory... " />
+        placeholder="Search for a memory " />
     </>
   )
 }

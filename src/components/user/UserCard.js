@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import {useParams, useHistory} from "react-router-dom"
 import {UserContext} from "./UserProvider"
 import "./User.css"
+import Button from 'react-bootstrap/Button'
 
 export const UserCard = ({user}) => {
     const{getUserById} = useContext(UserContext)
@@ -24,9 +25,9 @@ export const UserCard = ({user}) => {
     return (
         <section className="user">
                 {currentUser.householdId === +householdId ?
-                <button onClick={() => {
+                <Button variant="dark" onClick={() => {
                         history.push(`/users/edit/${user.id}`)
-                    }}>Edit</button>
+                    }}>Edit</Button >
                     : <> </> }
 
                 <h3 className="user__name">{user.name}</h3>

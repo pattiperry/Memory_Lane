@@ -37,3 +37,36 @@ strong {
 address {
   margin: 0 0 1.5em;
 }
+
+
+body {
+  background-image: url(../images/backgroundwalkingpath.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background: cover; */
+}
+
+.page_title {
+  text-align: center;
+  font-size: 55px;
+  
+}
+
+.page_subtitle {
+  text-align: center;
+  font-size: 50px;
+}
+
+.search {
+  float: right;
+  width: 250px;
+ margin-top: 6em; 
+}
+
+.contain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5em;
+  margin-bottom: 5em;
+}

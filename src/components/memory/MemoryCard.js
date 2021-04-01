@@ -10,7 +10,8 @@ export const MemoryCard = ({ memory }) => (
       <Card.Body>
         <Card.Title><h3 className="memory_title">
           {/* reacts way of doing atags= <link> */}
-          <Link to={`/memories/detail/${memory.id}`}>
+          <Link to="/" style={{ color: '#1f7e4f' }}
+              to={`/memories/detail/${memory.id}`}>
             { memory.title }
           </Link>
         </h3></Card.Title>
@@ -19,7 +20,7 @@ export const MemoryCard = ({ memory }) => (
         <div className="memory_category">Category: {memory.category?.name}</div>
         </Card.Text>
 
-        <footer className="blockquote-footer"><div className="memory_author">Written by: {memory.user?.name}</div>
+        <footer className="blockquote-footer"><div className="memory_author">{memory.user?.name}</div>
         </footer>
         </Card.Body>
     </section>
