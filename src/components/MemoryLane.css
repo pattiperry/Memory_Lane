@@ -22,6 +22,7 @@ h5,
 h6 {
   font-family: "Patua One", serif;
   letter-spacing: 2px;
+  
 }
 
 p {
@@ -40,7 +41,7 @@ address {
 
 
 body {
-  background-image: url(../images/backgroundwalkingpath.png);
+  background-image: url(../images/Memory\ Lane.png);
   background-size: cover;
   background-repeat: no-repeat;
   /* background: cover; */
@@ -49,18 +50,26 @@ body {
 .page_title {
   text-align: center;
   font-size: 55px;
-  
+  background-color:#292b2c;
+  color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 2rem;
 }
 
 .page_subtitle {
   text-align: center;
   font-size: 50px;
+  background-color:#292b2c;
+  color: white;
+  border-radius: 8px;
+  padding: 2rem;
 }
 
 .search {
   float: right;
   width: 250px;
- margin-top: 6em; 
+ margin-top: 3em; 
 }
 
 .contain {

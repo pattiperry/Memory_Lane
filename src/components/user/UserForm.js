@@ -119,7 +119,7 @@ export const UserForm = () => {
               <form className="userForm p-2" onSubmit={handleClickSaveUser}>
                 <h3>Please fill out all fields below.</h3>
                 <fieldset className="col-6">
-                    <label htmlFor="name">Name: </label>
+                    <label htmlFor="name"> </label>
                     <input 
                       type="text" 
                       id="name" 
@@ -132,7 +132,7 @@ export const UserForm = () => {
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Birthday: </label>
+                    <label htmlFor="dob"> </label>
                     <input 
                       type="date" 
                       id="dob" 
@@ -145,7 +145,7 @@ export const UserForm = () => {
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Email: </label>
+                    <label htmlFor="dob"> </label>
                     <input 
                       type="text" 
                       id="email" 
@@ -158,7 +158,7 @@ export const UserForm = () => {
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Phone Number: </label>
+                    <label htmlFor="dob"> </label>
                     <input 
                       type="tel" 
                       id="phone" 
@@ -171,7 +171,7 @@ export const UserForm = () => {
                 </fieldset>
             
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Candy: </label>
+                    <label htmlFor="dob"> </label>
                     <input 
                       type="text" 
                       id="candy" 
@@ -184,7 +184,7 @@ export const UserForm = () => {
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Dessert: </label>
+                    <label htmlFor="dob"> </label>
                     <input 
                       type="text" 
                       id="dessert" 
@@ -197,7 +197,7 @@ export const UserForm = () => {
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Food/Restaurant: </label>
+                    <label htmlFor="dob"> </label>
                     <input 
                       type="text" 
                       id="food" 
@@ -210,7 +210,7 @@ export const UserForm = () => {
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Drink: </label>
+                    <label htmlFor="dob"> </label>
                     <input 
                       type="text" 
                       id="drink" 
@@ -223,7 +223,7 @@ export const UserForm = () => {
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Place: </label>
+                    <label htmlFor="dob"> </label>
                     <input 
                       type="text" 
                       id="place" 
@@ -236,7 +236,7 @@ export const UserForm = () => {
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Season: </label>
+                    <label htmlFor="dob"> </label>
                     <input 
                       type="text" 
                       id="season" 
@@ -249,7 +249,7 @@ export const UserForm = () => {
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Scent: </label>
+                    <label htmlFor="dob"></label>
                     <input 
                       type="text" 
                       id="scent" 
@@ -262,7 +262,7 @@ export const UserForm = () => {
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Color: </label>
+                    <label htmlFor="dob"> </label>
                     <input 
                       type="text" 
                       id="color" 
@@ -275,7 +275,7 @@ export const UserForm = () => {
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Movie/TV Show: </label>
+                    <label htmlFor="dob"></label>
                     <input 
                       type="text" 
                       id="movie" 
@@ -288,7 +288,7 @@ export const UserForm = () => {
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Music/Musician: </label>
+                    <label htmlFor="dob"> </label>
                     <input 
                       type="text" 
                       id="music" 
@@ -301,7 +301,7 @@ export const UserForm = () => {
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Hobby/Past Time: </label>
+                    <label htmlFor="dob"> </label>
                     <input 
                       type="text" 
                       id="hobby" 

@@ -2,7 +2,7 @@ import React, { useRef } from "react"
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
 import "./Login.css"
-
+import Button from 'react-bootstrap/Button'
 
 export const Login = props => {
     const email = useRef()
@@ -39,10 +39,10 @@ export const Login = props => {
 
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Memory Lane</h1>
-                    <h2>Please sign in</h2>
+                    <h1 className="logIn_title">Memory Lane</h1>
+                    <h2 className="logIn_subtitle"><em>Life is a journey, make the most of it.</em> </h2>
                     <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
+                        <label htmlFor="inputEmail"> </label>
                         <input ref={email} type="email"
                             id="email"
                             className="form-control"
@@ -50,14 +50,14 @@ export const Login = props => {
                             required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">
+                        <Button variant="dark" type="submit">
                             Sign in
-                        </button>
+                        </Button >
                     </fieldset>
                 </form>
             </section>
             <section className="link--register">
-                <Link to="/register">Click here to create an account.</Link>
+                <Link style={{ color: '#000000' }}  to="/register">Click here to create an account.</Link>
             </section>
         </main>
     )

@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 
 //memories will be displayed as hyperlinks,click on a memory title and a memory detail component will appear
 export const MemoryList = ({}) => {
-  const { getMemories, memories, searchTerms} = useContext(MemoryContext)
+  const { getMemories, memories, searchTerms, setSearchTerms} = useContext(MemoryContext)
   const history = useHistory()
 
   //since we no longer are always displaying all the memories
@@ -15,7 +15,7 @@ export const MemoryList = ({}) => {
 
   // empty dependency array, useEffect only runs after first render
   useEffect(()=>{
-      getMemories()
+      getMemories().then(( )=>setSearchTerms(""))
   }, [])
 
   //useEffect dependency array with dependencies--will run if dependency changes state
