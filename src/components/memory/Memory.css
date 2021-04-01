@@ -16,3 +16,7 @@
   .memory_index_title {
       text-align: center;
   }
+
+  img {
+      /* max-height: 250px; */
+  }
