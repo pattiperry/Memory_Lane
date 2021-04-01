@@ -36,37 +36,41 @@ export const Home = ({memory}) => {
     
     
     return(
-    <>
-        <h1>Welcome to Memory Lane</h1>
-        <section className="leader_section">
-            {/* <h2 >Who Can Submit the Most??</h2> */}
-            <div className="leaderboard_image ">
-                {/* <Image src={Jumping}  thumbnail /> */}
-                <img src={FirstPlaceGif} alt="loading..."/>
-                <h3>{firstPlace}</h3>
-                <p>Number of Memories Submitted:{topUsers[0]?.memoriesLength}</p>
-            </div>
-        
-            <div className="leaderboard_image ">
-                {/* <Image src={Running} thumbnail /> */}
-                <img src={SecondPlaceGif} alt="loading..." />
-                <h3>{secondPlace}</h3>
-                <p>Number of Memories Submitted:{topUsers[1]?.memoriesLength}</p>
-            </div>
-        
-            <div className="leaderboard_image ">
-                {/* <Image src={Falling} thumbnail /> */}
-                <img src={ThirdPlaceGif} alt="loading..." />
-                <h3>{thirdPlace}</h3>
-                <p>Number of Memories Submitted:{topUsers[2]?.memoriesLength}</p>
-            </div>
-        
-        </section>
-        
-
-        <div className="recently_submitted_memories">
-      {<RecentlySubmitted key={memory} memory={memory} />}</div>
-    </>
-    )
+        <>
+            <h1 className="header">Welcome to Memory Lane</h1>
+            <section className="leader_section">
+                {/* <h2 >Who Can Submit the Most??</h2> */}
+                <div className="leaderboard_image ">
+                    {/* <Image src={Jumping}  thumbnail /> */}
+                    <h2>First Place</h2>
+                    <img src={FirstPlaceGif} alt="loading..."/>
+                    
+                    <h3>{firstPlace}</h3>
+                    <p>Number of Memories Submitted:{topUsers[0]?.memoriesLength}</p>
+                </div>
+            
+                <div className="leaderboard_image ">
+                    {/* <Image src={Running} thumbnail /> */}
+                    <h2>Second Place</h2>
+                    <img src={SecondPlaceGif} alt="loading..." />
+                    <h3>{secondPlace}</h3>
+                    <p>Number of Memories Submitted:{topUsers[1]?.memoriesLength}</p>
+                </div>
+            
+                <div className="leaderboard_image ">
+                    {/* <Image src={Falling} thumbnail /> */}
+                    <h2>Third Place</h2>
+                    <img src={ThirdPlaceGif} alt="loading..." />
+                    <h3>{thirdPlace}</h3>
+                    <p>Number of Memories Submitted:{topUsers[2]?.memoriesLength}</p>
+                </div>
+            
+            </section>
+            
     
-}
+            <div className="recently_submitted_memories">
+          {<RecentlySubmitted key={memory} memory={memory} />}</div>
+        </>
+        )
+        
+    }
