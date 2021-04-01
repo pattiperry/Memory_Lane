@@ -11,5 +11,11 @@
     flex-direction: column;
     height: 40vw;
     width: 30vw;
-    border:black 1px solid;
+    /* border:black 1px solid; */
+}
+
+img {
+    margin: 0 auto;
+    max-height: 100px;
+    width: 50px;
 }
