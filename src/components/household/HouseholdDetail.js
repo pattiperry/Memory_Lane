@@ -47,7 +47,7 @@ export const HouseholdDetail = () => {
   return (
     <>
       <Card style={{ width: '80rem' }} className="household_detail">
-      <section className="household">
+      <section className="household_on_detail_page">
         <Card.Title>
         <h3 className="household__name">{household.name}</h3>
         </Card.Title>
@@ -66,7 +66,7 @@ export const HouseholdDetail = () => {
         <Button variant="dark" onClick={handleDelete }>DELETE HOUSEHOLD</Button >
         
         {/* the ? below is called optional chaining, you have to do this when using nested properties to not break the code of an empty object*/}
-        <div className="current_users">Family Members: {household.users?.map(currentuser=> {
+        <div className="current_users">{household.users?.map(currentuser=> {
           return < UserCard 
           key={currentuser.id} 
           user={currentuser} 

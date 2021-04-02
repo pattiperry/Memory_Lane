@@ -46,7 +46,7 @@ export const Home = ({memory}) => {
                     <img src={FirstPlaceGif} width={400} height={250} alt="loading..."/>
                     
                     <h3 className="leader_place">{firstPlace}</h3>
-                    <p className="submitted_total">{topUsers[0]?.memoriesLength} Memories Submitted </p>
+                    <p className="submitted_total" style={{ color: '#1f7e4f' }} >{topUsers[0]?.memoriesLength} Memories Submitted </p>
                 </div>
             
                 <div className="leaderboard_image ">
@@ -54,7 +54,7 @@ export const Home = ({memory}) => {
                     <h2 className="leader_place" >Second Place</h2>
                     <img src={SecondPlaceGif} width={400} height={250} alt="loading..." />
                     <h3 className="leader_place" >{secondPlace}</h3>
-                    <p className="submitted_total" >{topUsers[1]?.memoriesLength} Memories Submitted</p>
+                    <p className="submitted_total" style={{ color: '#1f7e4f' }} >{topUsers[1]?.memoriesLength} Memories Submitted</p>
                 </div>
             
                 <div className="leaderboard_image ">
@@ -62,7 +62,7 @@ export const Home = ({memory}) => {
                     <h2 className="leader_place" >Third Place</h2>
                     <img src={ThirdPlaceGif} width={400} height={250} alt="loading..." />
                     <h3 className="leader_place">{thirdPlace}</h3>
-                    <p className="submitted_total" >{topUsers[2]?.memoriesLength} Memories Submitted</p>
+                    <p className="submitted_total" style={{ color: '#1f7e4f' }} >{topUsers[2]?.memoriesLength} Memories Submitted</p>
                 </div>
             
             </section>

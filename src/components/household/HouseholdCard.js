@@ -20,9 +20,7 @@ export const HouseholdCard = ({household}) => {
         <section className="household">
         <Card.Body>
 
-            <Button variant="dark"  onClick={() => handleJoinHousehold(userId, household.id)}>
-                JOIN HOUSEHOLD
-            </Button>
+            
 
             <Card.Title>
             <h3 className="household__name">
@@ -40,6 +38,9 @@ export const HouseholdCard = ({household}) => {
             <p>{household.users.length} People Live Here</p>
             </Card.Text>
             
+            <Button variant="dark" size="sm"   onClick={() => handleJoinHousehold(userId, household.id)}>
+                JOIN HOUSEHOLD
+            </Button>
 
             </Card.Body>
         </section>
