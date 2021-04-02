@@ -39,10 +39,12 @@ export const MemoryDetail = () => {
 
     //defining a variable that will be referenced in the return as a  delete button
   const handleDelete = () => {
+    if( window.confirm("Are you sure you want to delete this household?")){
     deleteMemory(memory.id)
     .then(()=> {
       history.push("/memories")
     })
+  }
   }
 
   

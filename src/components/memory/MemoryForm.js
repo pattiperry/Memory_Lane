@@ -4,6 +4,9 @@ import { MemoryContext } from "../memory/MemoryProvider"
 import { CategoryContext } from "../category/CategoryProvider"
 import "./Memory.css"
 import { useHistory, useParams } from 'react-router-dom';
+import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
+import Form from 'react-bootstrap/Form'
 
 export const MemoryForm = () => {
     const { addMemory, getMemoryById, editMemory } = useContext(MemoryContext)
@@ -63,6 +66,7 @@ export const MemoryForm = () => {
 
     const handleClickSaveMemory = (event) => {
       event.preventDefault()
+
           //disable the button - no extra clicks
           setIsLoading(true);
           if (memoryId){
@@ -95,12 +99,26 @@ export const MemoryForm = () => {
 
       return (
         <>
+        
           <main className="container-fluid">
             <div className="mt-2">
-              <h2 className="memoryForm__title">New Memory</h2>
+              <h2 className="memoryForm__title page_subtitle">New Memory</h2>
             </div>
-            <section>
+            <section className="add_memory_now">
               <form className="memoryForm p-2"  onSubmit={handleClickSaveMemory}>
+
+              <fieldset>
+                  <Button variant="dark"
+                    className="btn btn-primary"
+                    disabled={isLoading}
+                    type="submit"
+                   >
+                      {memoryId ? <>Save Memory</> : <>Add Memory</>}
+                  </Button >
+                </fieldset>
+
+
+                <Card className="add_memory">
                 <fieldset className="col-6">
                     <label htmlFor="title">Title:</label>
                     <input 
@@ -117,15 +135,20 @@ export const MemoryForm = () => {
                 <fieldset className="col-6">
                     <label htmlFor="text">Text:</label>
                     <input 
-                      type="text" 
+                      type="textarea" 
                       id="text" 
                       onChange={handleControlledInputChange} 
                       required 
                       autoFocus 
-                      className="form-control textarea rows={5}" 
+                      className="form-control textarea" 
                       placeholder="Text" 
                       defaultValue={memory.text}/>
+
                 </fieldset>
+
+                {/* <Form.Group controlId="exampleForm.ControlTextarea1">
+                <Form.Label>Text:</Form.Label>
+                <Form.Control as="textarea" rows={3} onChange={handleControlledInputChange} placeholder="Text" defaultValue={memory.text} required  /></Form.Group> */}
 
                 <fieldset className="col-6">
                     <label htmlFor="category">Category:</label>
@@ -146,19 +169,12 @@ export const MemoryForm = () => {
                       ))}
                     </select>   
                 </fieldset>
-
-                <fieldset>
-                  <button
-                    className="btn btn-primary"
-                    disabled={isLoading}
-                    type="submit"
-                   >
-                      {memoryId ? <>Save Memory</> : <>Add Memory</>}
-                  </button>
-                </fieldset>
+                </Card>
+                
               </form>
             </section>
           </main>
+          
         </>
       )
   }

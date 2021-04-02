@@ -34,3 +34,31 @@
     margin-left: 2rem;
     
 }
+
+.add_user {
+    width: 550px;
+    height: 500px; 
+    padding: 2rem;
+    border: 2px black solid;
+    
+}
+
+.add_user_now {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.add_household{
+    width: 550px;
+    height: 250px; 
+    padding: 2rem;
+    border: 2px black solid;
+    
+}
+
+.add_household_now {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

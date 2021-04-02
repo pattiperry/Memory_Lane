@@ -3,6 +3,8 @@ import { HouseholdContext } from "../household/HouseholdProvider"
 import "./Household.css"
 import { useHistory, useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
+import Card from 'react-bootstrap/Card'
 
 export const HouseholdForm = () => {
     const { addHousehold, getHouseholdById, editHousehold, getHouseholds } = useContext(HouseholdContext)
@@ -87,14 +89,28 @@ export const HouseholdForm = () => {
 
       return (
         <>
+        
         <main className="container-fluid">
             <div className="mt-2">
-              <h2 className="householdForm__title">New Household</h2>
+              <h2 className="householdForm__title page_subtitle">New Household</h2>
             </div>
-            <section>
+
+            <section className="add_household_now">
               <form className="householdForm p-2" onSubmit={handleClickSaveHousehold}>
+
+              <fieldset>
+                  <Button variant="dark"
+                    className="btn btn-primary"
+                    disabled={isLoading}
+                    type="submit">
+                      {householdId ? <>Save Household</> : <>Add Household</>}
+                  </Button>
+                </fieldset>
+
+                <div >
+                <Card className="add_household">
                 <fieldset className="col-6">
-                    <label htmlFor="name"></label>
+                    <label htmlFor="name">Household Name</label>
                     <input 
                       type="text" 
                       id="name" 
@@ -107,7 +123,7 @@ export const HouseholdForm = () => {
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="text"></label>
+                    <label htmlFor="text">Address</label>
                     <input 
                       type="text" 
                       id="address" 
@@ -118,18 +134,13 @@ export const HouseholdForm = () => {
                       placeholder="Address" 
                       defaultValue={household.address}/>
                 </fieldset>
+                </Card>
+                </div>
 
-                <fieldset>
-                  <Button variant="dark"
-                    className="btn btn-primary"
-                    disabled={isLoading}
-                    type="submit">
-                      {householdId ? <>Save Household</> : <>Add Household</>}
-                  </Button>
-                </fieldset>
               </form>
             </section>
           </main>
+          
         </>
       )
   }

@@ -15,3 +15,18 @@
   .text-center {
       margin-bottom: 2px;
   }
+
+  .add_memory{
+      width: 550px;
+      padding: 2rem;
+  }
+
+  .add_memory_now{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .textarea {
+    
+  }

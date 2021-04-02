@@ -38,15 +38,11 @@ export const ApplicationViews = () => {
                         <HouseholdList />
                     </Route>
                     <Route path="/households/create">
-                        
                         <HouseholdForm />
-                        
                     </Route>
                     
                         <Route path="/users/create/:householdId(\d+)">
-                          
                             <UserForm />
-                           
                         </Route>
                         {/* householdId is referring to usersId for the userForm */}
                         <Route path="/users/edit/:specificUserId(\d+)">

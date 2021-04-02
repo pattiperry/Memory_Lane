@@ -41,7 +41,7 @@ export const Login = props => {
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1 className="logIn_title">Memory Lane</h1>
                     <h2 className="logIn_subtitle"><em>Life is a journey, make the most of it.</em> </h2>
-                    <fieldset>
+                    <fieldset className="logIn_emailfield">
                         <label htmlFor="inputEmail"> </label>
                         <input ref={email} type="email"
                             id="email"
@@ -49,7 +49,7 @@ export const Login = props => {
                             placeholder="Email address"
                             required autoFocus />
                     </fieldset>
-                    <fieldset>
+                    <fieldset className= "logIn_button">
                         <Button variant="dark" type="submit">
                             Sign in
                         </Button >
