@@ -13,7 +13,7 @@ export const Login = props => {
     const existingUserCheck = () => {
         return fetch(`https://walk-down-memory-lane-api.herokuapp.com/users?email=${email.current.value}`)
             .then(res => res.json())
-            .then(user => user.length ? user[0] : false)
+            .then(user => user.length ? user[0] : false )
     }
 
     const handleLogin = (e) => {
