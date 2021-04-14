@@ -28,7 +28,7 @@ export const RecentlySubmitted = ({}) => {
   
   return (
     <>
-    <h1>Recently Submitted Memories</h1>
+    <h1 className="page_subtitle">Recently Submitted Memories</h1>
 
     <div className="sorted_memories">
       {

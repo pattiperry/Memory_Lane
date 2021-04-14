@@ -36,37 +36,41 @@ export const Home = ({memory}) => {
     
     
     return(
-    <>
-        <h1>Welcome to Memory Lane</h1>
-        <section className="leader_section">
-            {/* <h2 >Who Can Submit the Most??</h2> */}
-            <div className="leaderboard_image ">
-                {/* <Image src={Jumping}  thumbnail /> */}
-                <img src={FirstPlaceGif} alt="loading..."/>
-                <h3>{firstPlace}</h3>
-                <p>Number of Memories Submitted:{topUsers[0]?.memoriesLength}</p>
-            </div>
-        
-            <div className="leaderboard_image ">
-                {/* <Image src={Running} thumbnail /> */}
-                <img src={SecondPlaceGif} alt="loading..." />
-                <h3>{secondPlace}</h3>
-                <p>Number of Memories Submitted:{topUsers[1]?.memoriesLength}</p>
-            </div>
-        
-            <div className="leaderboard_image ">
-                {/* <Image src={Falling} thumbnail /> */}
-                <img src={ThirdPlaceGif} alt="loading..." />
-                <h3>{thirdPlace}</h3>
-                <p>Number of Memories Submitted:{topUsers[2]?.memoriesLength}</p>
-            </div>
-        
-        </section>
-        
-
-        <div className="recently_submitted_memories">
-      {<RecentlySubmitted key={memory} memory={memory} />}</div>
-    </>
-    )
+        <>
+            <h1 className="header page_title">Welcome to Memory Lane</h1>
+            <section className="leader_section">
+                {/* <h2 >Who Can Submit the Most??</h2> */}
+                <div className="leaderboard_image ">
+                    {/* <Image src={Jumping}  thumbnail /> */}
+                    <h2 className="leader_place"  >First Place</h2>
+                    <img src={FirstPlaceGif} width={400} height={250} alt="loading..."/>
+                    
+                    <h3 className="leader_place">{firstPlace}</h3>
+                    <p className="submitted_total" style={{ color: '#1f7e4f' }} >{topUsers[0]?.memoriesLength} Memories Submitted </p>
+                </div>
+            
+                <div className="leaderboard_image ">
+                    {/* <Image src={Running} thumbnail /> */}
+                    <h2 className="leader_place" >Second Place</h2>
+                    <img src={SecondPlaceGif} width={400} height={250} alt="loading..." />
+                    <h3 className="leader_place" >{secondPlace}</h3>
+                    <p className="submitted_total" style={{ color: '#1f7e4f' }} >{topUsers[1]?.memoriesLength} Memories Submitted</p>
+                </div>
+            
+                <div className="leaderboard_image ">
+                    {/* <Image src={Falling} thumbnail /> */}
+                    <h2 className="leader_place" >Third Place</h2>
+                    <img src={ThirdPlaceGif} width={400} height={250} alt="loading..." />
+                    <h3 className="leader_place">{thirdPlace}</h3>
+                    <p className="submitted_total" style={{ color: '#1f7e4f' }} >{topUsers[2]?.memoriesLength} Memories Submitted</p>
+                </div>
+            
+            </section>
+            
     
-}
+            <div className="recently_submitted_memories">
+          {<RecentlySubmitted key={memory} memory={memory} />}</div>
+        </>
+        )
+        
+    }

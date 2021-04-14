@@ -3,10 +3,11 @@ import { useHistory } from 'react-router-dom'
 import { MemoryContext } from "./MemoryProvider"
 import { MemoryCard } from "./MemoryCard"
 import "./Memory.css"
+import Button from 'react-bootstrap/Button'
 
 //memories will be displayed as hyperlinks,click on a memory title and a memory detail component will appear
 export const MemoryList = ({}) => {
-  const { getMemories, memories, searchTerms} = useContext(MemoryContext)
+  const { getMemories, memories, searchTerms, setSearchTerms} = useContext(MemoryContext)
   const history = useHistory()
 
   //since we no longer are always displaying all the memories
@@ -14,7 +15,7 @@ export const MemoryList = ({}) => {
 
   // empty dependency array, useEffect only runs after first render
   useEffect(()=>{
-      getMemories()
+      getMemories().then(( )=>setSearchTerms(""))
   }, [])
 
   //useEffect dependency array with dependencies--will run if dependency changes state
@@ -34,11 +35,12 @@ export const MemoryList = ({}) => {
 
   return (
       <>
-          <h1>Memory Index</h1>
+          <h1 className="page_title">Memory Index</h1>
 
-          <button onClick={() => history.push("/memories/create")}>
+          <Button variant="dark"   onClick={() => history.push("/memories/create")}>
               ADD NEW MEMORY
-          </button>
+          </Button>
+
           <div className="memories">
             {/* {console.log("MemoryList: Render", memories)} */}
               {

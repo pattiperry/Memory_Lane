@@ -49,7 +49,9 @@ export const ApplicationViews = () => {
                             <UserForm />
                         </Route>
                         <Route path="/households/detail/:householdId(\d+)">
+                            <div className="contain">
                             <HouseholdDetail />
+                            </div>
                         </Route>
                     
                     <Route path="/households/edit/:householdId(\d+)">
@@ -68,7 +70,9 @@ export const ApplicationViews = () => {
                                 <MemoryList />
                             </Route>
                             <Route path= "/memories/detail/:memoryId(\d+)">
+                                <div className="contain">
                                 <MemoryDetail />
+                                </div>
                             </Route>
                             <Route path="/memories/create/:memoryId(\d+)">
                                 <CommentForm />

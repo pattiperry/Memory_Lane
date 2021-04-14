@@ -20,14 +20,14 @@ export const CategoryProvider = (props) => {
 
     //fetches all the info on categories from the database
     const getCategories = () => {
-        return fetch("http://localhost:8088/categories")
+        return fetch('https://walk-down-memory-lane-api.herokuapp.com/categories')
         .then(res => res.json())
         .then(setCategories)
     }
 
     //uses a fetch call to get into the database, then adds a new memory object to the database through the POST method
     const addCategory = categoryObject => {
-        return fetch("http://localhost:8088/categories", {
+        return fetch('https://walk-down-memory-lane-api.herokuapp.com/categories', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -40,7 +40,7 @@ export const CategoryProvider = (props) => {
     //get a specific memory by the parameter of an id
     //this is how we make the detailed view for the memory and user cards
     const getCategoryById = (id) => {
-        return fetch(`http://localhost:8088/categories/${id}`)
+        return fetch(`https://walk-down-memory-lane-api.herokuapp.com/categories/${id}`)
             .then(res => res.json())
     }
 

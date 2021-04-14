@@ -20,14 +20,14 @@ export const CommentProvider = (props) => {
 
     //fetches all the info on comments from the database
     const getComments = (memoryId) => {
-        return fetch(`http://localhost:8088/comments?memoryId=${memoryId}&_expand=user`)
+        return fetch(`https://walk-down-memory-lane-api.herokuapp.com/comments?memoryId=${memoryId}&_expand=user`)
         .then(res => res.json())
         .then(setComments)
     }
 
     //uses a fetch call to get into the database, then adds a new comment object to the database through the POST method
     const addComment = commentObject => {
-        return fetch(`http://localhost:8088/comments`, {
+        return fetch(`https://walk-down-memory-lane-api.herokuapp.com/comments`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -40,13 +40,13 @@ export const CommentProvider = (props) => {
 
     //get a specific comment by the parameter of an id
     const getCommentById = (id) => {
-        return fetch(`http://localhost:8088/comments/${id}?_expand=user&_expand=category`)
+        return fetch(`https://walk-down-memory-lane-api.herokuapp.com/comments/${id}?_expand=user&_expand=category`)
             .then(res => res.json())
     }
 
     //delete a comment from the database
     const deleteComment = commentId => {
-        return fetch(`http://localhost:8088/comments/${commentId}`, {
+        return fetch(`https://walk-down-memory-lane-api.herokuapp.com/comments/${commentId}`, {
             method: "DELETE"
         })
            

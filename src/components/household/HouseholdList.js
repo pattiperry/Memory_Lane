@@ -3,7 +3,7 @@ import {useHistory} from "react-router-dom"
 import { HouseholdContext } from "./HouseholdProvider"
 import { HouseholdCard } from "./HouseholdCard"
 import "./Household.css"
-
+import Button from 'react-bootstrap/Button'
 
 export const HouseholdList = () => {
   // This state changes when `getHouseholds()` is invoked below
@@ -35,10 +35,10 @@ export const HouseholdList = () => {
 
   return (
     <>
-    <h1>Households</h1>
-        <button onClick={() => history.push("/households/create")}>
+    <h1 className="page_title">Households</h1>
+        <Button variant="dark" onClick={() => history.push("/households/create")}>
             ADD NEW HOUSEHOLD
-        </button>
+        </Button>
     <div className="households">
       {/* {console.log("HouseholdList: Render", households)} */}
       {

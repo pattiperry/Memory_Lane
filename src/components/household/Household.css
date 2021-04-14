@@ -1,12 +1,64 @@
 .households {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+   
   }
   
   .household {
+     
       flex-basis: 28%;
-      margin: 1em;
-      padding: 1em;
-      border: 1px solid black;
+          
   }
+
+  .text-center {
+    margin-bottom: 2px;
+}
+
+.current_users {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+}
+
+.household_name {
+    margin-top: 2rem;
+}
+
+.household_on_detail_page{
+    /* justify-content: center;
+    align-items: center; */
+    margin-top: 2rem;
+    margin-left: 2rem;
+    
+}
+
+.add_user {
+    width: 550px;
+    height: 500px; 
+    padding: 2rem;
+    border: 2px black solid;
+    
+}
+
+.add_user_now {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.add_household{
+    width: 550px;
+    height: 250px; 
+    padding: 2rem;
+    border: 2px black solid;
+    
+}
+
+.add_household_now {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

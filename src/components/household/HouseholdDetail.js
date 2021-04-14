@@ -4,7 +4,8 @@ import "./Household.css"
 import { useParams, useHistory } from "react-router-dom"
 import { UserCard } from "../user/UserCard"
 import { UserContext } from "../user/UserProvider"
-
+import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
 
 export const HouseholdDetail = () => {
   const {getHouseholdById, deleteHousehold} = useContext(HouseholdContext)
@@ -45,25 +46,27 @@ export const HouseholdDetail = () => {
    
   return (
     <>
- 
-      <section className="household">
+      <Card style={{ width: '80rem' }} className="household_detail">
+      <section className="household_on_detail_page">
+        <Card.Title>
         <h3 className="household__name">{household.name}</h3>
-      
+        </Card.Title>
+
       {/* this ternary operator only allows the edit button for the household card to be visible to the users that belong in that household(the householdId on the user object matches the householdId)  */}
         {user.householdId === +householdId ?
-          <button onClick={() => {
+          <Button variant="dark" onClick={() => {
             history.push(`/households/edit/${household.id}`)
-          }}>Edit</button>
+          }}>Edit</Button >
           : <> </> }
 
-        <button onClick={() => {
+        <Button variant="dark" onClick={() => {
                 history.push(`/users/create/${household.id}`)
-              }}>Add Family Member</button>
+              }}>Add Family Member</Button >
 
-        <button onClick={handleDelete }>DELETE HOUSEHOLD</button>
+        <Button variant="dark" onClick={handleDelete }>DELETE HOUSEHOLD</Button >
         
         {/* the ? below is called optional chaining, you have to do this when using nested properties to not break the code of an empty object*/}
-        <div className="current_users">Family Members: {household.users?.map(currentuser=> {
+        <div className="current_users">{household.users?.map(currentuser=> {
           return < UserCard 
           key={currentuser.id} 
           user={currentuser} 
@@ -72,6 +75,7 @@ export const HouseholdDetail = () => {
         
         
       </section>
+      </Card>
       </>
    
   )

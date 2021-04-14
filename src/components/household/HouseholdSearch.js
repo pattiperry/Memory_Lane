@@ -7,9 +7,9 @@ export const HouseholdSearch = () => {
 
   return (
     <>
-      Household search:
+      
       <input type="text"
-        className="input--wide"
+        className="input--wide search rounded"
         onKeyUp={(event) => setSearchTerms(event.target.value)}
         placeholder="Search by household name... " />
     </>

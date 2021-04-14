@@ -3,6 +3,7 @@ import { MemoryContext } from "../memory/MemoryProvider"
 import "./Comment.css"
 import { useHistory, useParams } from 'react-router-dom';
 import { CommentContext } from "./CommentProvider";
+import Button from 'react-bootstrap/Button'
 
 export const CommentForm = () => {
     const { getMemoryById} = useContext(MemoryContext)
@@ -101,13 +102,14 @@ export const CommentForm = () => {
                 </fieldset>
 
                 <fieldset>
-                  <button
+                  <Button 
+                    variant= "dark"
                     className="btn btn-primary"
                     type="submit"
                     disabled={isLoading}
                    >
                       {comment.id ? <>Save Comment</> : <>Add Comment</>}
-                  </button>
+                  </Button >
                 </fieldset>
               </form>
             </section>

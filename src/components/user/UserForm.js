@@ -2,7 +2,10 @@ import React, { useContext, useEffect, useState } from "react"
 import { UserContext } from "./UserProvider"
 import "./User.css"
 import { useHistory, useParams } from 'react-router-dom';
-
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
 
 export const UserForm = () => {
     const { addUser, getSpecificUserById,editUser} = useContext(UserContext)
@@ -111,6 +114,8 @@ export const UserForm = () => {
 
       return (
         <>
+        
+        
         <main className="container-fluid">
             <div className="mt-2">
               <h1 className="userForm__title">Create New Family Member Profile</h1>
@@ -118,8 +123,23 @@ export const UserForm = () => {
             <section>
               <form className="userForm p-2" onSubmit={handleClickSaveUser}>
                 <h3>Please fill out all fields below.</h3>
+
+                <fieldset>
+                  <Button 
+                    variant="dark"
+                    className="btn btn-primary"
+                    disabled={isLoading}
+                    type="submit">
+                     {user.id ? <>Save Profile</>: <>Add Family Member</>}
+                  </Button >
+                </fieldset>
+
+                <div className="add_user_now">
+                <Card className="add_user">
+                <Form.Row>
+                 
                 <fieldset className="col-6">
-                    <label htmlFor="name">Name: </label>
+                    <label htmlFor="name"> </label>
                     <input 
                       type="text" 
                       id="name" 
@@ -130,9 +150,9 @@ export const UserForm = () => {
                       placeholder="Name" 
                       defaultValue={user.name}/>
                 </fieldset>
-
+                
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Birthday: </label>
+                    <label htmlFor="dob"> </label>
                     <input 
                       type="date" 
                       id="dob" 
@@ -143,9 +163,9 @@ export const UserForm = () => {
                       placeholder="Birthday" 
                       defaultValue={user.dob}/>
                 </fieldset>
-
+                
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Email: </label>
+                    <label htmlFor="email"> </label>
                     <input 
                       type="text" 
                       id="email" 
@@ -156,9 +176,9 @@ export const UserForm = () => {
                       placeholder="Email" 
                       defaultValue={user.email}/>
                 </fieldset>
-
+               
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Phone Number: </label>
+                    <label htmlFor="phone"> </label>
                     <input 
                       type="tel" 
                       id="phone" 
@@ -169,9 +189,12 @@ export const UserForm = () => {
                       placeholder="Phone Number" 
                       defaultValue={user.phone}/>
                 </fieldset>
-            
+               
+                </Form.Row>
+                
+                <Form.Row>
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Candy: </label>
+                    <label htmlFor="candy"> </label>
                     <input 
                       type="text" 
                       id="candy" 
@@ -184,7 +207,7 @@ export const UserForm = () => {
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Dessert: </label>
+                    <label htmlFor="dessert"> </label>
                     <input 
                       type="text" 
                       id="dessert" 
@@ -197,7 +220,7 @@ export const UserForm = () => {
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Food/Restaurant: </label>
+                    <label htmlFor="food"> </label>
                     <input 
                       type="text" 
                       id="food" 
@@ -205,12 +228,12 @@ export const UserForm = () => {
                       required 
                       autoFocus 
                       className="form-control" 
-                      placeholder="Favorite Food/Restaurant" 
+                      placeholder="Favorite Food" 
                       defaultValue={user.food}/>
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Drink: </label>
+                    <label htmlFor="drink"> </label>
                     <input 
                       type="text" 
                       id="drink" 
@@ -221,9 +244,12 @@ export const UserForm = () => {
                       placeholder="Favorite Drink" 
                       defaultValue={user.drink}/>
                 </fieldset>
-
-                <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Place: </label>
+                </Form.Row>
+                </Card>
+                <Card className="add_user">
+                <Form.Row>
+                <fieldset className="col-6 size=sm">
+                    <label htmlFor="place"> </label>
                     <input 
                       type="text" 
                       id="place" 
@@ -236,7 +262,7 @@ export const UserForm = () => {
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Season: </label>
+                    <label htmlFor="season"> </label>
                     <input 
                       type="text" 
                       id="season" 
@@ -249,7 +275,7 @@ export const UserForm = () => {
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Scent: </label>
+                    <label htmlFor="scent"></label>
                     <input 
                       type="text" 
                       id="scent" 
@@ -262,7 +288,7 @@ export const UserForm = () => {
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Color: </label>
+                    <label htmlFor="color"> </label>
                     <input 
                       type="text" 
                       id="color" 
@@ -273,9 +299,13 @@ export const UserForm = () => {
                       placeholder="Favorite Color" 
                       defaultValue={user.color}/>
                 </fieldset>
+                </Form.Row>
+                
 
+                
+                <Form.Row>
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Movie/TV Show: </label>
+                    <label htmlFor="movie"></label>
                     <input 
                       type="text" 
                       id="movie" 
@@ -283,12 +313,12 @@ export const UserForm = () => {
                       required 
                       autoFocus 
                       className="form-control" 
-                      placeholder="Favorite Movie/TV Show" 
+                      placeholder="Favorite Movie" 
                       defaultValue={user.movie}/>
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Music/Musician: </label>
+                    <label htmlFor="music"> </label>
                     <input 
                       type="text" 
                       id="music" 
@@ -296,12 +326,12 @@ export const UserForm = () => {
                       required 
                       autoFocus 
                       className="form-control" 
-                      placeholder="Favorite Music/Musician" 
+                      placeholder="Favorite Music" 
                       defaultValue={user.music}/>
                 </fieldset>
 
                 <fieldset className="col-6">
-                    <label htmlFor="dob">Favorite Hobby/Past Time: </label>
+                    <label htmlFor="hobby"> </label>
                     <input 
                       type="text" 
                       id="hobby" 
@@ -309,21 +339,19 @@ export const UserForm = () => {
                       required 
                       autoFocus 
                       className="form-control" 
-                      placeholder="Favorite Hobby/Past Time" 
+                      placeholder="Favorite Hobby" 
                       defaultValue={user.hobby}/>
                 </fieldset>
+                </Form.Row>
+                </Card>
+                </div>
 
-                <fieldset>
-                  <button
-                    className="btn btn-primary"
-                    disabled={isLoading}
-                    type="submit">
-                     {user.id ? <>Save Profile</>: <>Add Family Member</>}
-                  </button>
-                </fieldset>
+                
               </form>
             </section>
           </main>
+         
+          
         </>
       )
   }

@@ -24,7 +24,7 @@ export const CommentList = ({memoryId}) => {
   
   return (
     <>
-    <h1>Comments</h1>
+    <h3>Comments</h3>
 
     <div className="comments">
       {/* {console.log("CommentList: Render", comments)} */}

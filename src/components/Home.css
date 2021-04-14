@@ -1,15 +1,50 @@
+.header {
+    text-align: center;
+    margin-top: 1em;
+    font-size: 4em;
+}
+
 .leader_section {
     display: flex;
     flex-direction: row;
     width: 100vw;
-    margin-top: 10em;
-    margin-bottom: 8em 
+    height: 30vw;
+    margin-top: 6em;
+    margin-bottom: 2em;
+    margin-left: 5em; 
+    margin-right: 5em;
+    
 }
 
 .leaderboard_image {
+    text-align: center;
     display: flex;
     flex-direction: column;
-    height: 40vw;
-    width: 30vw;
-    border:black 1px solid;
+    height: 400px;
+    justify-content: space-between;
+    margin-left: 3rem;
+    
+   
+}
+
+img {
+    margin: 2rem;
+    height: 300px;
+}
+
+.sorted_memories {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+}
+
+.leader_place {
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.submitted_total {
+    font-weight: bold;
+    font-size: 20px;
 }

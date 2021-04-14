@@ -24,7 +24,7 @@ export const Register = (props) => {
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(`http://localhost:8088/users?email=${email.current.value}`)
+        return fetch(`https://walk-down-memory-lane-api.herokuapp.com/users?email=${email.current.value}`)
             .then(res => res.json())
             .then(user => !!user.length)
     }
@@ -36,7 +36,7 @@ export const Register = (props) => {
         existingUserCheck()
             .then((userExists) => {
                 if (!userExists) {
-                    fetch("http://localhost:8088/users", {
+                    fetch("https://walk-down-memory-lane-api.herokuapp.com/users", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
