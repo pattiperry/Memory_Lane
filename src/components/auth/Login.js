@@ -40,7 +40,8 @@ export const Login = props => {
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1 className="logIn_title">Memory Lane</h1>
-                    <h2 className="logIn_subtitle"><em>Life is a journey, make the most of it.</em> </h2>
+                    <h2 className="logIn_subtitle style={{ color: '#1f7e4f' }}"><em>Memory is a way of holding on to the things you love, the things you are, the things you never want to lose. 
+                        <h2>-Kevin Arnold</h2></em> </h2>
                     <fieldset className="logIn_emailfield">
                         <label htmlFor="inputEmail"> </label>
                         <input ref={email} type="email"
@@ -54,11 +55,12 @@ export const Login = props => {
                             Sign in
                         </Button >
                     </fieldset>
+                    <fieldset className="link--register">
+                <Link style={{ color: '#000000' }}  to="/register">Click here to create an account.</Link>
+            </fieldset>
                 </form>
             </section>
-            <section className="link--register">
-                <Link style={{ color: '#000000' }}  to="/register">Click here to create an account.</Link>
-            </section>
+            
         </main>
     )
 }
