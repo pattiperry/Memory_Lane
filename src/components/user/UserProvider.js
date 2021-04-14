@@ -20,14 +20,14 @@ export const UserProvider = (props) => {
 
     //fetches all the info on users from the database
     const getUsers = () => {
-        return fetch("http://localhost:8088/users?_embed=memories")
+        return fetch('https://walk-down-memory-lane-api.herokuapp.com/users?_embed=memories')
         .then(res => res.json())
         .then(setUser)
     }
 
     //uses a fetch call to get into the database, then adds a new user object to the database through the POST method
     const addUser = userObject => {
-        return fetch("http://localhost:8088/users", {
+        return fetch('https://walk-down-memory-lane-api.herokuapp.com/users', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -39,7 +39,7 @@ export const UserProvider = (props) => {
 
     //get a specific user by the parameter of an id
     const getSpecificUserById = (id) => {
-        return fetch(`http://localhost:8088/users/${id}?_expand=household`)
+        return fetch(`https://walk-down-memory-lane-api.herokuapp.com/users/${id}?_expand=household`)
             .then(res => res.json())
     }
 
@@ -47,13 +47,13 @@ export const UserProvider = (props) => {
     //this is how we make the detailed view for the user and user cards
     const getUserById = () => {
         let userId = localStorage.getItem("memorylane_user")
-        return fetch(`http://localhost:8088/users/${userId}?_expand=household`)
+        return fetch(`https://walk-down-memory-lane-api.herokuapp.com/users/${userId}?_expand=household`)
             .then(res => res.json())
     }
 
     //edit a user from the database
     const editUser = user => {
-        return fetch(`http://localhost:8088/users/${user.id}`, {
+        return fetch(`https://walk-down-memory-lane-api.herokuapp.com/users/${user.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"

@@ -20,7 +20,7 @@ export const HouseholdProvider = (props) => {
 
     //fetches all the info on households from the database
     const getHouseholds = () => {
-        return fetch("http://localhost:8088/households?_embed=users")
+        return fetch('https://walk-down-memory-lane-api.herokuapp.com/households?_embed=users')
         .then(res => res.json())
         .then(setHousehold)
 
@@ -30,7 +30,7 @@ export const HouseholdProvider = (props) => {
     //use this fetch call to only change one key in the object, PATCH method
     //use this fetch call when a user joins a household
     const joinHousehold = (id,householdId) => {
-        return fetch(`http://localhost:8088/users/${id}`, {
+        return fetch(`https://walk-down-memory-lane-api.herokuapp.com/users/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -42,7 +42,7 @@ export const HouseholdProvider = (props) => {
 
     //uses a fetch call to get into the database, then adds a new household object to the database through the POST method
     const addHousehold = householdObject => {
-        return fetch("http://localhost:8088/households", {
+        return fetch('https://walk-down-memory-lane-api.herokuapp.com/households', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -56,13 +56,13 @@ export const HouseholdProvider = (props) => {
     //get a specific household by the parameter of an id
     //this is how we make the detailed view for the household and user cards
     const getHouseholdById = (id) => {
-        return fetch(`http://localhost:8088/households/${id}?_embed=users`)
+        return fetch(`https://walk-down-memory-lane-api.herokuapp.com/households/${id}?_embed=users`)
             .then(res => res.json())
     }
 
      //edit a household from the database
      const editHousehold = household => {
-        return fetch(`http://localhost:8088/households/${household.id}`, {
+        return fetch(`https://walk-down-memory-lane-api.herokuapp.com/households/${household.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"
@@ -74,7 +74,7 @@ export const HouseholdProvider = (props) => {
     
      //delete a memory from the database
      const deleteHousehold = householdId => {
-        return fetch(`http://localhost:8088/households/${householdId}`, {
+        return fetch(`https://walk-down-memory-lane-api.herokuapp.com/households/${householdId}`, {
             method: "DELETE"
         })
         .then(getHouseholds)

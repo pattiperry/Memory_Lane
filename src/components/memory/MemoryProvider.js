@@ -20,14 +20,14 @@ export const MemoryProvider = (props) => {
 
     //fetches all the info on memories from the database
     const getMemories = () => {
-        return fetch("http://localhost:8088/memories?_expand=user&_expand=category")
+        return fetch('https://walk-down-memory-lane-api.herokuapp.com/memories?_expand=user&_expand=category')
         .then(res => res.json())
         .then(setMemories)
     }
 
     //uses a fetch call to get into the database, then adds a new memory object to the database through the POST method
     const addMemory = memoryObject => {
-        return fetch("http://localhost:8088/memories", {
+        return fetch('https://walk-down-memory-lane-api.herokuapp.com/memories', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -41,13 +41,13 @@ export const MemoryProvider = (props) => {
     //get a specific memory by the parameter of an id
     //this is how we make the detailed view for the memory and user cards
     const getMemoryById = (id) => {
-        return fetch(`http://localhost:8088/memories/${id}?_expand=user&_expand=category`)
+        return fetch(`https://walk-down-memory-lane-api.herokuapp.com/memories/${id}?_expand=user&_expand=category`)
             .then(res => res.json())
     }
 
     //delete a memory from the database
     const deleteMemory = memoryId => {
-        return fetch(`http://localhost:8088/memories/${memoryId}`, {
+        return fetch(`https://walk-down-memory-lane-api.herokuapp.com/memories/${memoryId}`, {
             method: "DELETE"
         })
             .then(getMemories)
@@ -55,7 +55,7 @@ export const MemoryProvider = (props) => {
 
     //edit a memory from the database
     const editMemory = memory => {
-        return fetch(`http://localhost:8088/memories/${memory.id}`, {
+        return fetch(`https://walk-down-memory-lane-api.herokuapp.com/memories/${memory.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"
